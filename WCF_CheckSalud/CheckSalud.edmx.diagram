@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ed4af7c9cfa491998fbd7d49f1746bf" Name="Diagram1">
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Analisis" Width="1.5" PointX="8.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Auditor" Width="1.5" PointX="10.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_DocumentoPac" Width="1.5" PointX="10.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Empresa" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Enfermedad" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Especialidad" Width="1.5" PointX="5.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Evaluacion" Width="1.5" PointX="13.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Medico" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Paciente" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Resultados" Width="1.5" PointX="10.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Ubicacion" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckSalud_DBModel.Tb_Usuario" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Result__codAn__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Audito__codMe__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Evalua__codAu__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Docume__codPa__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Docume__Login__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Empres__Id_Ub__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Pacien__codEm__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Result__codEn__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Medico__codEs__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Evalua__codMe__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Result__codEv__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Medico__Id_Ub__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Medico__Login__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK__Tb_Pacien__Id_Ub__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="CheckSalud_DBModel.FK_Tb_Result_codPa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
