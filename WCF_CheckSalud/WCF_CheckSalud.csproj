@@ -71,6 +71,7 @@
     <Compile Include="IServicioResultado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service1.cs" />
+    <Compile Include="ServicioMedico.cs" />
     <Compile Include="ServicioResultado.cs" />
     <Compile Include="Tb_Analisis.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
