@@ -14,9 +14,9 @@ namespace WCF_CheckSalud
         [OperationContract]
         ResultadoDC ConsultarResultado(String strCodigo);
         [OperationContract]
-        List<ResultadoDC> ListarResultados(); /*
+        List<ResultadoDC> ListarResultados(); 
         [OperationContract]
-        Boolean InsertarResultado(ResultadoDC resultado);*/
+        Boolean InsertarResultado(ResultadoDC resultado);
 
         
     }

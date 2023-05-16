@@ -107,10 +107,10 @@ namespace WCF_CheckSalud
                 throw new Exception(ex.Message);
             }
         }
-        /*
+        
         public Boolean InsertarResultado(ResultadoDC objResultadoDC)
         {
 
-        }*/
+        }
     }
 }
