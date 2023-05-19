@@ -17,8 +17,12 @@ namespace WCF_CheckSalud
         List<ResultadoDC> ListarResultados(); 
         [OperationContract]
         Boolean InsertarResultado(ResultadoDC resultado);
+        [OperationContract]
+        Boolean ActualizarResultado(ResultadoDC objResultadoDC);
+        [OperationContract]
+        Boolean EliminarResultado(String strCodigo);
 
-        
+
     }
     [DataContract]
     [Serializable]
