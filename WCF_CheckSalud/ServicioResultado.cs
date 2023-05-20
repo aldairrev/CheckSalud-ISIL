@@ -110,7 +110,67 @@ namespace WCF_CheckSalud
         /*
         public Boolean InsertarResultado(ResultadoDC objResultadoDC)
         {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
 
+                MisCkSalud.usp_InsertarResultado(Convert.ToDecimal(objResultadoDC.peso), Convert.ToDecimal(objResultadoDC.altura), objResultadoDC.sangre,
+                    objResultadoDC.orina, objResultadoDC.ekg, objResultadoDC.spirometria, objResultadoDC.psicologia,
+                    objResultadoDC.rayosX, objResultadoDC.audicion, objResultadoDC.vista, objResultadoDC.codAnalisis,
+                    objResultadoDC.codEvaluacion, objResultadoDC.codEnfermedad, objResultadoDC.recomendaciones,
+                    objResultadoDC.codPaciente, objResultadoDC.Usu_Registro);
+
+                MisCkSalud.SaveChanges();
+
+                return true;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+                return false;
+            }
+        }
+
+        public Boolean ActualizarResultado(ResultadoDC objResultadoDC)
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+
+                MisCkSalud.usp_ActualizarResultado(objResultadoDC.codResultado, Convert.ToDecimal(objResultadoDC.peso),
+                    Convert.ToDecimal(objResultadoDC.altura), objResultadoDC.sangre,
+                    objResultadoDC.orina, objResultadoDC.ekg, objResultadoDC.spirometria, objResultadoDC.psicologia,
+                    objResultadoDC.rayosX, objResultadoDC.audicion, objResultadoDC.vista, objResultadoDC.codEnfermedad,
+                    objResultadoDC.recomendaciones, objResultadoDC.codPaciente,objResultadoDC.Usu_Ult_Mod);
+
+                MisCkSalud.SaveChanges();
+                return true;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+                return false;
+            }
+        }
+
+        public Boolean EliminarResultado(String strCodigo)
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+
+                MisCkSalud.usp_EliminarResultado(strCodigo);
+                MisCkSalud.SaveChanges();
+                return true;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+                return false;
+            }
         }
         */
     }

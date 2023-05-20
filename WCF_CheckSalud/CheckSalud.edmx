@@ -359,6 +359,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_ActualizarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="varchar" Mode="In" />
+          <Parameter Name="vPeso" Type="decimal" Mode="In" />
+          <Parameter Name="vAltura" Type="decimal" Mode="In" />
+          <Parameter Name="vSangre" Type="nvarchar" Mode="In" />
+          <Parameter Name="vOrina" Type="nvarchar" Mode="In" />
+          <Parameter Name="vEkg" Type="nvarchar" Mode="In" />
+          <Parameter Name="vSpiro" Type="nvarchar" Mode="In" />
+          <Parameter Name="vPsico" Type="nvarchar" Mode="In" />
+          <Parameter Name="vXray" Type="nvarchar" Mode="In" />
+          <Parameter Name="vAudi" Type="nvarchar" Mode="In" />
+          <Parameter Name="vVisi" Type="nvarchar" Mode="In" />
+          <Parameter Name="vCodEnfe" Type="char" Mode="In" />
+          <Parameter Name="vRecom" Type="nvarchar" Mode="In" />
+          <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
+          <Parameter Name="vUsu_Ult_Mod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vDes" Type="varchar" Mode="In" />
+          <Parameter Name="vCos" Type="money" Mode="In" />
+          <Parameter Name="vEst" Type="int" Mode="In" />
+          <Parameter Name="vUsu_Reg" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarEvaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vFEva" Type="date" Mode="In" />
+          <Parameter Name="vMed" Type="nchar" Mode="In" />
+          <Parameter Name="vAud" Type="char" Mode="In" />
+          <Parameter Name="vEst" Type="int" Mode="In" />
+          <Parameter Name="vUsu_Reg" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_InsertarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vPeso" Type="decimal" Mode="In" />
           <Parameter Name="vAltura" Type="decimal" Mode="In" />
@@ -930,6 +963,39 @@
             <Parameter Name="vCodPac" Mode="In" Type="String" />
             <Parameter Name="vUsu_Registro" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_ActualizarResultado">
+            <Parameter Name="vCod" Mode="In" Type="String" />
+            <Parameter Name="vPeso" Mode="In" Type="Decimal" />
+            <Parameter Name="vAltura" Mode="In" Type="Decimal" />
+            <Parameter Name="vSangre" Mode="In" Type="String" />
+            <Parameter Name="vOrina" Mode="In" Type="String" />
+            <Parameter Name="vEkg" Mode="In" Type="String" />
+            <Parameter Name="vSpiro" Mode="In" Type="String" />
+            <Parameter Name="vPsico" Mode="In" Type="String" />
+            <Parameter Name="vXray" Mode="In" Type="String" />
+            <Parameter Name="vAudi" Mode="In" Type="String" />
+            <Parameter Name="vVisi" Mode="In" Type="String" />
+            <Parameter Name="vCodEnfe" Mode="In" Type="String" />
+            <Parameter Name="vRecom" Mode="In" Type="String" />
+            <Parameter Name="vCodPac" Mode="In" Type="String" />
+            <Parameter Name="vUsu_Ult_Mod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarResultado">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarAnalisis">
+            <Parameter Name="vDes" Mode="In" Type="String" />
+            <Parameter Name="vCos" Mode="In" Type="Decimal" />
+            <Parameter Name="vEst" Mode="In" Type="Int32" />
+            <Parameter Name="vUsu_Reg" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarEvaluacion">
+            <Parameter Name="vFEva" Mode="In" Type="DateTime" />
+            <Parameter Name="vMed" Mode="In" Type="String" />
+            <Parameter Name="vAud" Mode="In" Type="String" />
+            <Parameter Name="vEst" Mode="In" Type="Int32" />
+            <Parameter Name="vUsu_Reg" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1124,6 +1190,10 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="usp_InsertarResultado" FunctionName="CheckSalud_DBModel.Store.usp_InsertarResultado" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarResultado" FunctionName="CheckSalud_DBModel.Store.usp_ActualizarResultado" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarResultado" FunctionName="CheckSalud_DBModel.Store.usp_EliminarResultado" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_InsertarAnalisis" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarEvaluacion" FunctionName="CheckSalud_DBModel.Store.usp_InsertarEvaluacion" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

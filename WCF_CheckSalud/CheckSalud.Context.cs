@@ -108,5 +108,125 @@ namespace WCF_CheckSalud
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarResultado", vPesoParameter, vAlturaParameter, vSangreParameter, vOrinaParameter, vEkgParameter, vSpiroParameter, vPsicoParameter, vXrayParameter, vAudiParameter, vVisiParameter, vCodAnalParameter, vCodEvaParameter, vCodEnfeParameter, vRecomParameter, vCodPacParameter, vUsu_RegistroParameter);
         }
+    
+        public virtual int usp_ActualizarResultado(string vCod, Nullable<decimal> vPeso, Nullable<decimal> vAltura, string vSangre, string vOrina, string vEkg, string vSpiro, string vPsico, string vXray, string vAudi, string vVisi, string vCodEnfe, string vRecom, string vCodPac, string vUsu_Ult_Mod)
+        {
+            var vCodParameter = vCod != null ?
+                new ObjectParameter("vCod", vCod) :
+                new ObjectParameter("vCod", typeof(string));
+    
+            var vPesoParameter = vPeso.HasValue ?
+                new ObjectParameter("vPeso", vPeso) :
+                new ObjectParameter("vPeso", typeof(decimal));
+    
+            var vAlturaParameter = vAltura.HasValue ?
+                new ObjectParameter("vAltura", vAltura) :
+                new ObjectParameter("vAltura", typeof(decimal));
+    
+            var vSangreParameter = vSangre != null ?
+                new ObjectParameter("vSangre", vSangre) :
+                new ObjectParameter("vSangre", typeof(string));
+    
+            var vOrinaParameter = vOrina != null ?
+                new ObjectParameter("vOrina", vOrina) :
+                new ObjectParameter("vOrina", typeof(string));
+    
+            var vEkgParameter = vEkg != null ?
+                new ObjectParameter("vEkg", vEkg) :
+                new ObjectParameter("vEkg", typeof(string));
+    
+            var vSpiroParameter = vSpiro != null ?
+                new ObjectParameter("vSpiro", vSpiro) :
+                new ObjectParameter("vSpiro", typeof(string));
+    
+            var vPsicoParameter = vPsico != null ?
+                new ObjectParameter("vPsico", vPsico) :
+                new ObjectParameter("vPsico", typeof(string));
+    
+            var vXrayParameter = vXray != null ?
+                new ObjectParameter("vXray", vXray) :
+                new ObjectParameter("vXray", typeof(string));
+    
+            var vAudiParameter = vAudi != null ?
+                new ObjectParameter("vAudi", vAudi) :
+                new ObjectParameter("vAudi", typeof(string));
+    
+            var vVisiParameter = vVisi != null ?
+                new ObjectParameter("vVisi", vVisi) :
+                new ObjectParameter("vVisi", typeof(string));
+    
+            var vCodEnfeParameter = vCodEnfe != null ?
+                new ObjectParameter("vCodEnfe", vCodEnfe) :
+                new ObjectParameter("vCodEnfe", typeof(string));
+    
+            var vRecomParameter = vRecom != null ?
+                new ObjectParameter("vRecom", vRecom) :
+                new ObjectParameter("vRecom", typeof(string));
+    
+            var vCodPacParameter = vCodPac != null ?
+                new ObjectParameter("vCodPac", vCodPac) :
+                new ObjectParameter("vCodPac", typeof(string));
+    
+            var vUsu_Ult_ModParameter = vUsu_Ult_Mod != null ?
+                new ObjectParameter("vUsu_Ult_Mod", vUsu_Ult_Mod) :
+                new ObjectParameter("vUsu_Ult_Mod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarResultado", vCodParameter, vPesoParameter, vAlturaParameter, vSangreParameter, vOrinaParameter, vEkgParameter, vSpiroParameter, vPsicoParameter, vXrayParameter, vAudiParameter, vVisiParameter, vCodEnfeParameter, vRecomParameter, vCodPacParameter, vUsu_Ult_ModParameter);
+        }
+    
+        public virtual int usp_EliminarResultado(string vCod)
+        {
+            var vCodParameter = vCod != null ?
+                new ObjectParameter("vCod", vCod) :
+                new ObjectParameter("vCod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EliminarResultado", vCodParameter);
+        }
+    
+        public virtual int usp_InsertarAnalisis(string vDes, Nullable<decimal> vCos, Nullable<int> vEst, string vUsu_Reg)
+        {
+            var vDesParameter = vDes != null ?
+                new ObjectParameter("vDes", vDes) :
+                new ObjectParameter("vDes", typeof(string));
+    
+            var vCosParameter = vCos.HasValue ?
+                new ObjectParameter("vCos", vCos) :
+                new ObjectParameter("vCos", typeof(decimal));
+    
+            var vEstParameter = vEst.HasValue ?
+                new ObjectParameter("vEst", vEst) :
+                new ObjectParameter("vEst", typeof(int));
+    
+            var vUsu_RegParameter = vUsu_Reg != null ?
+                new ObjectParameter("vUsu_Reg", vUsu_Reg) :
+                new ObjectParameter("vUsu_Reg", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarAnalisis", vDesParameter, vCosParameter, vEstParameter, vUsu_RegParameter);
+        }
+    
+        public virtual int usp_InsertarEvaluacion(Nullable<System.DateTime> vFEva, string vMed, string vAud, Nullable<int> vEst, string vUsu_Reg)
+        {
+            var vFEvaParameter = vFEva.HasValue ?
+                new ObjectParameter("vFEva", vFEva) :
+                new ObjectParameter("vFEva", typeof(System.DateTime));
+    
+            var vMedParameter = vMed != null ?
+                new ObjectParameter("vMed", vMed) :
+                new ObjectParameter("vMed", typeof(string));
+    
+            var vAudParameter = vAud != null ?
+                new ObjectParameter("vAud", vAud) :
+                new ObjectParameter("vAud", typeof(string));
+    
+            var vEstParameter = vEst.HasValue ?
+                new ObjectParameter("vEst", vEst) :
+                new ObjectParameter("vEst", typeof(int));
+    
+            var vUsu_RegParameter = vUsu_Reg != null ?
+                new ObjectParameter("vUsu_Reg", vUsu_Reg) :
+                new ObjectParameter("vUsu_Reg", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarEvaluacion", vFEvaParameter, vMedParameter, vAudParameter, vEstParameter, vUsu_RegParameter);
+        }
     }
 }
