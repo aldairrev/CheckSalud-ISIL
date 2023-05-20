@@ -68,11 +68,15 @@
       <DependentUpon>CheckSalud.edmx</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
+    <Compile Include="IServicioAnalisis.cs" />
     <Compile Include="IServicioEmpresa.cs" />
+    <Compile Include="IServicioEvaluacion.cs" />
     <Compile Include="IServicioResultado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service1.cs" />
+    <Compile Include="ServicioAnalisis.cs" />
     <Compile Include="ServicioEmpresa.cs" />
+    <Compile Include="ServicioEvaluacion.cs" />
     <Compile Include="ServicioMedico.cs" />
     <Compile Include="ServicioResultado.cs" />
     <Compile Include="Tb_Analisis.cs">
@@ -137,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
