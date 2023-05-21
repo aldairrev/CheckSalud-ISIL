@@ -262,6 +262,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include=".env" />
+    <None Include=".env.example" />
     <None Include="App.config" />
     <EntityDeploy Include="CheckSalud.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
