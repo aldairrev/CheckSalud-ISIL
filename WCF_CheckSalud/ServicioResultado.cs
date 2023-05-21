@@ -107,7 +107,7 @@ namespace WCF_CheckSalud
                 throw new Exception(ex.Message);
             }
         }
-        
+        /*
         public Boolean InsertarResultado(ResultadoDC objResultadoDC)
         {
             try
@@ -172,5 +172,6 @@ namespace WCF_CheckSalud
                 return false;
             }
         }
+        */
     }
 }
