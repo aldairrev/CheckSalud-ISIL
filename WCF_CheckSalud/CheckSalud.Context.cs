@@ -10,6 +10,7 @@
 namespace WCF_CheckSalud
 {
     using System;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
@@ -18,10 +19,19 @@ namespace WCF_CheckSalud
     public partial class CheckSaludEntities : DbContext
     {
         public CheckSaludEntities()
-            : base("name=CheckSaludEntities")
+            : base(GetConnectionString())
+        { }
+        private static string GetConnectionString()
         {
+            DotNetEnv.Env.Load(); // Cargar las variables de entorno desde el archivo .env
+            DotNetEnv.Env.TraversePath().Load();
+
+            String connectionString = DotNetEnv.Env.GetString("DB_CONNECTION_STRING");
+            // Realiza cualquier otra manipulación necesaria en la cadena de conexión si es necesario
+
+            return connectionString;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
