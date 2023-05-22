@@ -13,7 +13,17 @@ namespace WCF_CheckSalud
     {
         public bool ActualizarMedico(MedicoDC medico)
         {
-            throw new NotImplementedException();
+            try
+            {
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+
+                MisCkSalud.usp_ActualizarMedico();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public MedicoDC ConsultarMedico(string strCodigo)
@@ -49,7 +59,7 @@ namespace WCF_CheckSalud
                     objMedicoDC.dniMedic = objConsulta.dniMedic;
                     objMedicoDC.nomMedico = objConsulta.nomMedico;
                     objMedicoDC.apeMedico = objConsulta.apeMedico;
-                    objMedicoDC.apellNomMedico = objConsulta.nomMedico + objConsulta.apeMedico;
+                    objMedicoDC.apellNomMedico = objConsulta.nomMedico + ", " +  objConsulta.apeMedico;
                     objMedicoDC.numColegiatura = objConsulta.numColegiatura;
                     objMedicoDC.fechaNacimiento = objConsulta.fechaNacimiento;
                     objMedicoDC.emailMedico = objConsulta.emailMedico;
