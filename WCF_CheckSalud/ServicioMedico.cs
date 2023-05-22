@@ -23,7 +23,20 @@ namespace WCF_CheckSalud
 
         public bool EliminarMedico(string strCodigo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+
+                MisCkSalud.usp_EliminarMedico(strCodigo);
+                MisCkSalud.SaveChanges();
+                return true;
+            }
+            catch(EntityException ex)
+            {
+                throw new Exception(ex.Message);
+                return false;
+            }
         }
 
         public bool InsertarMedico(MedicoDC medico)
