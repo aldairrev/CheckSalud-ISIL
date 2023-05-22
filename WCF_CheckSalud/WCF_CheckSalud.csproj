@@ -116,6 +116,12 @@
     <Compile Include="Tb_Usuario.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ConsultarMedico_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarMedico_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

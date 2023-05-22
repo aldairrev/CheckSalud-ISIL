@@ -359,6 +359,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_ActualizarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCodMedico" Type="nchar" Mode="In" />
+          <Parameter Name="dniMedic" Type="nchar" Mode="In" />
+          <Parameter Name="nomMedico" Type="varchar" Mode="In" />
+          <Parameter Name="apeMedico" Type="varchar" Mode="In" />
+          <Parameter Name="numColegiatura" Type="char" Mode="In" />
+          <Parameter Name="fechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="emailMedico" Type="varchar" Mode="In" />
+          <Parameter Name="direcMedico" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="int" Mode="In" />
+          <Parameter Name="codEspecialidad" Type="nchar" Mode="In" />
+          <Parameter Name="Login_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Usu_Ult_Mod" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_Ubigeo" Type="nchar" Mode="In" />
+        </Function>
         <Function Name="usp_ActualizarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vCod" Type="varchar" Mode="In" />
           <Parameter Name="vPeso" Type="decimal" Mode="In" />
@@ -376,6 +391,12 @@
           <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
           <Parameter Name="vUsu_Ult_Mod" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="usp_ConsultarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCodMedico" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VcodMedico" Type="nchar" Mode="In" />
+        </Function>
         <Function Name="usp_EliminarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vCod" Type="nvarchar" Mode="In" />
         </Function>
@@ -391,6 +412,21 @@
           <Parameter Name="vAud" Type="char" Mode="In" />
           <Parameter Name="vEst" Type="int" Mode="In" />
           <Parameter Name="vUsu_Reg" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dniMedic" Type="nchar" Mode="In" />
+          <Parameter Name="nomMedico" Type="varchar" Mode="In" />
+          <Parameter Name="apeMedico" Type="varchar" Mode="In" />
+          <Parameter Name="numColegiatura" Type="char" Mode="In" />
+          <Parameter Name="fechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="emailMedico" Type="varchar" Mode="In" />
+          <Parameter Name="direcMedico" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="int" Mode="In" />
+          <Parameter Name="codEspecialidad" Type="nchar" Mode="In" />
+          <Parameter Name="Login_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Usu_Registro" Type="nvarchar" Mode="In" />
+          <Parameter Name="Id_Ubigeo" Type="nchar" Mode="In" />
+          <Parameter Name="fec_ingreso" Type="datetime" Mode="In" />
         </Function>
         <Function Name="usp_InsertarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vPeso" Type="decimal" Mode="In" />
@@ -410,6 +446,7 @@
           <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
           <Parameter Name="vUsu_Registro" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="usp_ListarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="CheckSalud_DBModelStoreContainer">
           <EntitySet Name="Tb_Analisis" EntityType="Self.Tb_Analisis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_Auditor" EntityType="Self.Tb_Auditor" Schema="dbo" store:Type="Tables" />
@@ -996,7 +1033,71 @@
             <Parameter Name="vEst" Mode="In" Type="Int32" />
             <Parameter Name="vUsu_Reg" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_ActualizarMedico">
+            <Parameter Name="vCodMedico" Mode="In" Type="String" />
+            <Parameter Name="dniMedic" Mode="In" Type="String" />
+            <Parameter Name="nomMedico" Mode="In" Type="String" />
+            <Parameter Name="apeMedico" Mode="In" Type="String" />
+            <Parameter Name="numColegiatura" Mode="In" Type="String" />
+            <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="emailMedico" Mode="In" Type="String" />
+            <Parameter Name="direcMedico" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="Int32" />
+            <Parameter Name="codEspecialidad" Mode="In" Type="String" />
+            <Parameter Name="Login_Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usu_Ult_Mod" Mode="In" Type="String" />
+            <Parameter Name="Id_Ubigeo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarMedico" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarMedico_Result)">
+            <Parameter Name="vCodMedico" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarMedico">
+            <Parameter Name="VcodMedico" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarMedico">
+            <Parameter Name="dniMedic" Mode="In" Type="String" />
+            <Parameter Name="nomMedico" Mode="In" Type="String" />
+            <Parameter Name="apeMedico" Mode="In" Type="String" />
+            <Parameter Name="numColegiatura" Mode="In" Type="String" />
+            <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="emailMedico" Mode="In" Type="String" />
+            <Parameter Name="direcMedico" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="Int32" />
+            <Parameter Name="codEspecialidad" Mode="In" Type="String" />
+            <Parameter Name="Login_Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usu_Registro" Mode="In" Type="String" />
+            <Parameter Name="Id_Ubigeo" Mode="In" Type="String" />
+            <Parameter Name="fec_ingreso" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarMedico" ReturnType="Collection(CheckSalud_DBModel.usp_ListarMedico_Result)" />
         </EntityContainer>
+        <ComplexType Name="usp_ConsultarMedico_Result">
+          <Property Type="String" Name="codigo" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="dni" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="colegiatura" Nullable="false" MaxLength="9" />
+          <Property Type="DateTime" Name="fecha_de_nacimiento" Nullable="false" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="320" />
+          <Property Type="String" Name="direccion" Nullable="true" MaxLength="99" />
+          <Property Type="Int32" Name="estado" Nullable="false" />
+          <Property Type="String" Name="especialidad" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="usuario" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ubigeo" Nullable="false" MaxLength="6" />
+          <Property Type="DateTime" Name="fecha_de_ingreso" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMedico_Result">
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Numero_de_Colegiatura" Nullable="false" MaxLength="9" />
+          <Property Type="DateTime" Name="Fecha_de_Nacimiento" Nullable="false" />
+          <Property Type="Int32" Name="Edad" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Especialidad" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Login_de_Usuario" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="99" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1194,6 +1295,44 @@
           <FunctionImportMapping FunctionImportName="usp_EliminarResultado" FunctionName="CheckSalud_DBModel.Store.usp_EliminarResultado" />
           <FunctionImportMapping FunctionImportName="usp_InsertarAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_InsertarAnalisis" />
           <FunctionImportMapping FunctionImportName="usp_InsertarEvaluacion" FunctionName="CheckSalud_DBModel.Store.usp_InsertarEvaluacion" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarMedico" FunctionName="CheckSalud_DBModel.Store.usp_ActualizarMedico" />
+          <FunctionImportMapping FunctionImportName="usp_ConsultarMedico" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarMedico">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarMedico_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="colegiatura" ColumnName="colegiatura" />
+                <ScalarProperty Name="fecha_de_nacimiento" ColumnName="fecha de nacimiento" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="ubigeo" ColumnName="ubigeo" />
+                <ScalarProperty Name="fecha_de_ingreso" ColumnName="fecha de ingreso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_EliminarMedico" FunctionName="CheckSalud_DBModel.Store.usp_EliminarMedico" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarMedico" FunctionName="CheckSalud_DBModel.Store.usp_InsertarMedico" />
+          <FunctionImportMapping FunctionImportName="usp_ListarMedico" FunctionName="CheckSalud_DBModel.Store.usp_ListarMedico">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarMedico_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Numero_de_Colegiatura" ColumnName="Numero de Colegiatura" />
+                <ScalarProperty Name="Fecha_de_Nacimiento" ColumnName="Fecha de Nacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+                <ScalarProperty Name="Login_de_Usuario" ColumnName="Login de Usuario" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -228,5 +228,142 @@ namespace WCF_CheckSalud
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarEvaluacion", vFEvaParameter, vMedParameter, vAudParameter, vEstParameter, vUsu_RegParameter);
         }
+    
+        public virtual int usp_ActualizarMedico(string vCodMedico, string dniMedic, string nomMedico, string apeMedico, string numColegiatura, Nullable<System.DateTime> fechaNacimiento, string emailMedico, string direcMedico, Nullable<int> estado, string codEspecialidad, string login_Usuario, string usu_Ult_Mod, string id_Ubigeo)
+        {
+            var vCodMedicoParameter = vCodMedico != null ?
+                new ObjectParameter("vCodMedico", vCodMedico) :
+                new ObjectParameter("vCodMedico", typeof(string));
+    
+            var dniMedicParameter = dniMedic != null ?
+                new ObjectParameter("dniMedic", dniMedic) :
+                new ObjectParameter("dniMedic", typeof(string));
+    
+            var nomMedicoParameter = nomMedico != null ?
+                new ObjectParameter("nomMedico", nomMedico) :
+                new ObjectParameter("nomMedico", typeof(string));
+    
+            var apeMedicoParameter = apeMedico != null ?
+                new ObjectParameter("apeMedico", apeMedico) :
+                new ObjectParameter("apeMedico", typeof(string));
+    
+            var numColegiaturaParameter = numColegiatura != null ?
+                new ObjectParameter("numColegiatura", numColegiatura) :
+                new ObjectParameter("numColegiatura", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("fechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("fechaNacimiento", typeof(System.DateTime));
+    
+            var emailMedicoParameter = emailMedico != null ?
+                new ObjectParameter("emailMedico", emailMedico) :
+                new ObjectParameter("emailMedico", typeof(string));
+    
+            var direcMedicoParameter = direcMedico != null ?
+                new ObjectParameter("direcMedico", direcMedico) :
+                new ObjectParameter("direcMedico", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            var codEspecialidadParameter = codEspecialidad != null ?
+                new ObjectParameter("codEspecialidad", codEspecialidad) :
+                new ObjectParameter("codEspecialidad", typeof(string));
+    
+            var login_UsuarioParameter = login_Usuario != null ?
+                new ObjectParameter("Login_Usuario", login_Usuario) :
+                new ObjectParameter("Login_Usuario", typeof(string));
+    
+            var usu_Ult_ModParameter = usu_Ult_Mod != null ?
+                new ObjectParameter("Usu_Ult_Mod", usu_Ult_Mod) :
+                new ObjectParameter("Usu_Ult_Mod", typeof(string));
+    
+            var id_UbigeoParameter = id_Ubigeo != null ?
+                new ObjectParameter("Id_Ubigeo", id_Ubigeo) :
+                new ObjectParameter("Id_Ubigeo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_ActualizarMedico", vCodMedicoParameter, dniMedicParameter, nomMedicoParameter, apeMedicoParameter, numColegiaturaParameter, fechaNacimientoParameter, emailMedicoParameter, direcMedicoParameter, estadoParameter, codEspecialidadParameter, login_UsuarioParameter, usu_Ult_ModParameter, id_UbigeoParameter);
+        }
+    
+        public virtual ObjectResult<usp_ConsultarMedico_Result> usp_ConsultarMedico(string vCodMedico)
+        {
+            var vCodMedicoParameter = vCodMedico != null ?
+                new ObjectParameter("vCodMedico", vCodMedico) :
+                new ObjectParameter("vCodMedico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ConsultarMedico_Result>("usp_ConsultarMedico", vCodMedicoParameter);
+        }
+    
+        public virtual int usp_EliminarMedico(string vcodMedico)
+        {
+            var vcodMedicoParameter = vcodMedico != null ?
+                new ObjectParameter("VcodMedico", vcodMedico) :
+                new ObjectParameter("VcodMedico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EliminarMedico", vcodMedicoParameter);
+        }
+    
+        public virtual int usp_InsertarMedico(string dniMedic, string nomMedico, string apeMedico, string numColegiatura, Nullable<System.DateTime> fechaNacimiento, string emailMedico, string direcMedico, Nullable<int> estado, string codEspecialidad, string login_Usuario, string usu_Registro, string id_Ubigeo, Nullable<System.DateTime> fec_ingreso)
+        {
+            var dniMedicParameter = dniMedic != null ?
+                new ObjectParameter("dniMedic", dniMedic) :
+                new ObjectParameter("dniMedic", typeof(string));
+    
+            var nomMedicoParameter = nomMedico != null ?
+                new ObjectParameter("nomMedico", nomMedico) :
+                new ObjectParameter("nomMedico", typeof(string));
+    
+            var apeMedicoParameter = apeMedico != null ?
+                new ObjectParameter("apeMedico", apeMedico) :
+                new ObjectParameter("apeMedico", typeof(string));
+    
+            var numColegiaturaParameter = numColegiatura != null ?
+                new ObjectParameter("numColegiatura", numColegiatura) :
+                new ObjectParameter("numColegiatura", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("fechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("fechaNacimiento", typeof(System.DateTime));
+    
+            var emailMedicoParameter = emailMedico != null ?
+                new ObjectParameter("emailMedico", emailMedico) :
+                new ObjectParameter("emailMedico", typeof(string));
+    
+            var direcMedicoParameter = direcMedico != null ?
+                new ObjectParameter("direcMedico", direcMedico) :
+                new ObjectParameter("direcMedico", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            var codEspecialidadParameter = codEspecialidad != null ?
+                new ObjectParameter("codEspecialidad", codEspecialidad) :
+                new ObjectParameter("codEspecialidad", typeof(string));
+    
+            var login_UsuarioParameter = login_Usuario != null ?
+                new ObjectParameter("Login_Usuario", login_Usuario) :
+                new ObjectParameter("Login_Usuario", typeof(string));
+    
+            var usu_RegistroParameter = usu_Registro != null ?
+                new ObjectParameter("Usu_Registro", usu_Registro) :
+                new ObjectParameter("Usu_Registro", typeof(string));
+    
+            var id_UbigeoParameter = id_Ubigeo != null ?
+                new ObjectParameter("Id_Ubigeo", id_Ubigeo) :
+                new ObjectParameter("Id_Ubigeo", typeof(string));
+    
+            var fec_ingresoParameter = fec_ingreso.HasValue ?
+                new ObjectParameter("fec_ingreso", fec_ingreso) :
+                new ObjectParameter("fec_ingreso", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarMedico", dniMedicParameter, nomMedicoParameter, apeMedicoParameter, numColegiaturaParameter, fechaNacimientoParameter, emailMedicoParameter, direcMedicoParameter, estadoParameter, codEspecialidadParameter, login_UsuarioParameter, usu_RegistroParameter, id_UbigeoParameter, fec_ingresoParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarMedico_Result> usp_ListarMedico()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarMedico_Result>("usp_ListarMedico");
+        }
     }
 }
