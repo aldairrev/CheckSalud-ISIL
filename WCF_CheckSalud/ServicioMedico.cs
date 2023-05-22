@@ -18,6 +18,7 @@ namespace WCF_CheckSalud
 
         public MedicoDC ConsultarMedico(string strCodigo)
         {
+            //:v
             throw new NotImplementedException();
         }
 
