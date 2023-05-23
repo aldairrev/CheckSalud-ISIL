@@ -15,7 +15,10 @@ namespace WCF_CheckSalud
         List<PacienteDC> ListarPacientesMedicoFechas(String strCod, DateTime fecIni, DateTime fecFin);
         [OperationContract]
         List<ConsultaDC> ListarConsultasPacientesFechas(String strCod, DateTime fecIni, DateTime fecFin);
-        
+        [OperationContract]
+        List<PacienteDC> ListarPacientesEmpresa(String strCod);
+        [OperationContract]
+        List<AnalisisDC> ListarAnalisisMedico(String strCod);
     }
 
 
