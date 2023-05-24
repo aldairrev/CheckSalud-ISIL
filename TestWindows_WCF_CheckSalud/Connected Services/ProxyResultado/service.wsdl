@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioResultado" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCF_CheckSalud" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioResultado_ConsultarResultado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarResultado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ConsultarResultado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarResultadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ListarResultados_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarResultados" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ListarResultados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarResultadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_InsertarResultado_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarResultado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_InsertarResultado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarResultadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ActualizarResultado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarResultado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ActualizarResultado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarResultadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_EliminarResultado_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarResultado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_EliminarResultado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarResultadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ListarCboEnfermedad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCboEnfermedad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ListarCboEnfermedad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCboEnfermedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ListarCboPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCboPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_ListarCboPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCboPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_listarCboMedicoDC_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarCboMedicoDC" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_listarCboMedicoDC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarCboMedicoDCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_listarCboAuditores_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarCboAuditores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioResultado_listarCboAuditores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarCboAuditoresResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioResultado">
+    <wsdl:operation name="ConsultarResultado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/ConsultarResultado" message="tns:IServicioResultado_ConsultarResultado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/ConsultarResultadoResponse" message="tns:IServicioResultado_ConsultarResultado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarResultados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/ListarResultados" message="tns:IServicioResultado_ListarResultados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/ListarResultadosResponse" message="tns:IServicioResultado_ListarResultados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarResultado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/InsertarResultado" message="tns:IServicioResultado_InsertarResultado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/InsertarResultadoResponse" message="tns:IServicioResultado_InsertarResultado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarResultado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/ActualizarResultado" message="tns:IServicioResultado_ActualizarResultado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/ActualizarResultadoResponse" message="tns:IServicioResultado_ActualizarResultado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarResultado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/EliminarResultado" message="tns:IServicioResultado_EliminarResultado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/EliminarResultadoResponse" message="tns:IServicioResultado_EliminarResultado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCboEnfermedad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/ListarCboEnfermedad" message="tns:IServicioResultado_ListarCboEnfermedad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/ListarCboEnfermedadResponse" message="tns:IServicioResultado_ListarCboEnfermedad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCboPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/ListarCboPaciente" message="tns:IServicioResultado_ListarCboPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/ListarCboPacienteResponse" message="tns:IServicioResultado_ListarCboPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCboMedicoDC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/listarCboMedicoDC" message="tns:IServicioResultado_listarCboMedicoDC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/listarCboMedicoDCResponse" message="tns:IServicioResultado_listarCboMedicoDC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCboAuditores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioResultado/listarCboAuditores" message="tns:IServicioResultado_listarCboAuditores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioResultado/listarCboAuditoresResponse" message="tns:IServicioResultado_listarCboAuditores_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioResultado" type="tns:IServicioResultado">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarResultado">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/ConsultarResultado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarResultados">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/ListarResultados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarResultado">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/InsertarResultado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarResultado">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/ActualizarResultado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarResultado">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/EliminarResultado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCboEnfermedad">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/ListarCboEnfermedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCboPaciente">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/ListarCboPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCboMedicoDC">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/listarCboMedicoDC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCboAuditores">
+      <soap:operation soapAction="http://tempuri.org/IServicioResultado/listarCboAuditores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioResultado">
+    <wsdl:port name="BasicHttpBinding_IServicioResultado" binding="tns:BasicHttpBinding_IServicioResultado">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

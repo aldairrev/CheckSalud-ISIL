@@ -14,7 +14,9 @@ namespace WCF_CheckSalud
         [OperationContract]
         Boolean InsertarEvaluacion(EvaluacionDC objEvaluacionDC);
         [OperationContract]
-        List<EvaluacionDC> ListarUltEvaluacion();
+        EvaluacionDC ConsultarUltEvaluacion();
+        [OperationContract]
+        List<EvaluacionDC> ListarEvalucion();
     }
 
     [DataContract]

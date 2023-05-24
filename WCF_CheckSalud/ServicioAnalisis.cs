@@ -32,7 +32,7 @@ namespace WCF_CheckSalud
             }
         }
 
-        public List<AnalisisDC> ListarUltAnalisis()
+        public AnalisisDC ConsultarUltAnalisis()
         {
             try
             {
@@ -45,14 +45,44 @@ namespace WCF_CheckSalud
                              orderby miCkSalud.codAnalisis descending
                              select miCkSalud).Take(1);
 
+                AnalisisDC objAnalisisDC = new AnalisisDC();
                 foreach (var objConsulta in query)
                 {
-                    AnalisisDC objAnalisisDC = new AnalisisDC();
                     objAnalisisDC.codAnalisis = objConsulta.codAnalisis;
                     objAnalisisDC.descAnalisis = objConsulta.descAnalisis;
                     objAnalisisDC.costo = Convert.ToDouble(objConsulta.costo);
                     objAnalisisDC.Usu_Registro = objConsulta.Usu_Registro;
                     objAnalisisDC.Usu_Ult_Mod = objConsulta.Usu_Ult_Mod;
+
+                    objUltLista.Add(objAnalisisDC);
+                }
+                return objAnalisisDC;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+
+            }
+        }
+
+        public List<AnalisisDC> ListarAnalisis()
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+                List<AnalisisDC> objUltLista = new List<AnalisisDC>();
+
+                //obtenemos con LINQ  la lista
+                var query = from miCkSalud in MisCkSalud.Tb_Analisis
+                            orderby miCkSalud.codAnalisis
+                            select miCkSalud;
+
+                foreach (var objConsulta in query)
+                {
+                    AnalisisDC objAnalisisDC = new AnalisisDC();
+                    objAnalisisDC.codAnalisis = objConsulta.codAnalisis;
+                    objAnalisisDC.descAnalisis = objConsulta.descAnalisis;
 
                     objUltLista.Add(objAnalisisDC);
                 }
@@ -65,5 +95,6 @@ namespace WCF_CheckSalud
 
             }
         }
+        
     }
 }

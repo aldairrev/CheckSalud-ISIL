@@ -21,7 +21,16 @@ namespace WCF_CheckSalud
         Boolean ActualizarResultado(ResultadoDC objResultadoDC);
         [OperationContract]
         Boolean EliminarResultado(String strCodigo);
+        //combox para resultado:
+        [OperationContract]
+        List<CboEnfermedadDC> ListarCboEnfermedad();
+        [OperationContract]
+        List<CboPacienteDC> ListarCboPaciente();
+        [OperationContract]
+        List<CboMedicoDC> listarCboMedicoDC();
 
+        [OperationContract]
+        List<CboAuditorDC> listarCboAuditores();
 
     }
     [DataContract]
@@ -71,6 +80,46 @@ namespace WCF_CheckSalud
         public String Usu_Ult_Mod { get; set; }
     }
 
+    [DataContract]
+    [Serializable]
+    public class CboEnfermedadDC
+    {
+        [DataMember]
+        public String codEnfermedad { get; set; }
+        [DataMember]
+        public String descEnfermedad { get; set; }
+    }
 
+    [DataContract]
+    [Serializable]
+    public class CboPacienteDC
+    {
+        [DataMember]
+        public String codPaciente { get; set; }
+        [DataMember]
+        public String ApeNomPaciente { get; set; }
+    }
+
+    [DataContract]
+    [Serializable]
+    public class CboMedicoDC
+    {
+        [DataMember]
+        public String codMedico { get; set; }
+        [DataMember]
+        public String ApeNomMedico { get; set; }
+
+    }
+
+    [DataContract]
+    [Serializable]
+    public class CboAuditorDC
+    {
+        [DataMember]
+        public String codAuditor { get; set; }
+        [DataMember]
+        public String ApeNomAuditor { get; set; }
+
+    }
 
 }

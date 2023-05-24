@@ -33,11 +33,10 @@ namespace WCF_CheckSalud
             }
         }
 
-        public List<EvaluacionDC> ListarUltEvaluacion()
+        public EvaluacionDC ConsultarUltEvaluacion()
         {
             try
             {
-
                 //declaro instancia del modelo BD
                 CheckSaludEntities MisCkSalud = new CheckSaludEntities();
                 List<EvaluacionDC> objUltLista = new List<EvaluacionDC>();
@@ -46,6 +45,38 @@ namespace WCF_CheckSalud
                 var query = (from miCkSalud in MisCkSalud.Tb_Evaluacion
                              orderby miCkSalud.codEvaluacion descending
                              select miCkSalud).Take(1);
+
+                EvaluacionDC objEvaluacionDC = new EvaluacionDC();
+                foreach (var objConsulta in query)
+                {
+                    objEvaluacionDC.codEvaluacion = objConsulta.codEvaluacion;
+                    objEvaluacionDC.codMedico = objConsulta.codMedico;
+                    objEvaluacionDC.codAuditor = objConsulta.codAuditor;
+                    objEvaluacionDC.Usu_Registro = objConsulta.Usu_Registro;
+
+                    objUltLista.Add(objEvaluacionDC);
+                }
+                return objEvaluacionDC;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<EvaluacionDC> ListarEvalucion()
+        {
+            try
+            {
+
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+                List<EvaluacionDC> objUltLista = new List<EvaluacionDC>();
+
+                //obtenemos con LINQ  la lista
+                var query = from miCkSalud in MisCkSalud.Tb_Evaluacion
+                            orderby miCkSalud.codEvaluacion
+                            select miCkSalud;
 
                 foreach (var objConsulta in query)
                 {
@@ -64,6 +95,5 @@ namespace WCF_CheckSalud
                 throw new Exception(ex.Message);
             }
         }
-
     }
 }

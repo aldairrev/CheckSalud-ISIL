@@ -28,8 +28,12 @@ namespace TestWindows_WCF_CheckSalud
         {
             try
             {
+                ResultadoMan02 objResultado02 = new ResultadoMan02();
+                objResultado02.ShowDialog();
+                //refrescamos 
                 CargarDatos();
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("Error:" + ex.Message);
             }
@@ -54,6 +58,11 @@ namespace TestWindows_WCF_CheckSalud
         {
             try
             {
+                ResultadoMan03 objResultadoMan03 = new ResultadoMan03();
+                //Obtenemos el codigo de resultado seleccionado:
+                String strCodigo = dtgResultados.CurrentRow.Cells[0].Value.ToString();
+                objResultadoMan03.strCodigo = strCodigo;
+                objResultadoMan03.ShowDialog();
                 CargarDatos();
             }
             catch (Exception ex)

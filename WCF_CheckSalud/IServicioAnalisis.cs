@@ -14,7 +14,9 @@ namespace WCF_CheckSalud
         [OperationContract]
         Boolean InsertarAnalisis(AnalisisDC objAnalisisDC);
         [OperationContract]
-        List<AnalisisDC> ListarUltAnalisis();
+        AnalisisDC ConsultarUltAnalisis();
+        [OperationContract]
+        List<AnalisisDC> ListarAnalisis();
     }
 
     [DataContract]

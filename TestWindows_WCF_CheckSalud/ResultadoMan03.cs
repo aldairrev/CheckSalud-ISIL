@@ -7,27 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TestWindows_WCF_CheckSalud.ProxyResultado;
-using System.Collections.Generic;
 
 namespace TestWindows_WCF_CheckSalud
 {
-    public partial class ResultadoMan02 : Form
+    public partial class ResultadoMan03 : Form
     {
         ProxyResultado.ServicioResultadoClient objServicioResultado = new ProxyResultado.ServicioResultadoClient();
         ProxyResultado.ResultadoDC objResultadoDC = new ProxyResultado.ResultadoDC();
-
-        ProxyAnalisis.ServicioAnalisisClient objServicioAnalisis = new ProxyAnalisis.ServicioAnalisisClient();
-        ProxyAnalisis.AnalisisDC objAnalisisDC = new ProxyAnalisis.AnalisisDC();
-
-        ProxyEvaluacion.ServicioEvaluacionClient objServicioEvaluacion = new ProxyEvaluacion.ServicioEvaluacionClient();
-        ProxyEvaluacion.EvaluacionDC objEvaluacionDC = new ProxyEvaluacion.EvaluacionDC();
-        public ResultadoMan02()
+        public ResultadoMan03()
         {
             InitializeComponent();
-        }
+            
+        }        
 
-        private void ResultadoMan02_Load(object sender, EventArgs e)
+        public String strCodigo { get; set; }
+        private void ResultadoMan03_Load(object sender, EventArgs e)
         {
             try
             {
@@ -53,24 +47,28 @@ namespace TestWindows_WCF_CheckSalud
                 cboPaciente.DisplayMember = "ApeNomPaciente";
                 cboPaciente.SelectedIndex = 0;
 
-                //CBOAUDITOR
-                cboAuditor.DataSource = objServicioResultado.listarCboAuditores();
-                cboAuditor.ValueMember = "codAuditor";
-                cboAuditor.DisplayMember = "ApeNomAuditor";
-                cboAuditor.Text = "Seleccione";
-
-                //CBOMEDICO
-                cboMedico.DataSource = objServicioResultado.listarCboMedicoDC();
-                cboMedico.ValueMember = "codMedico";
-                cboMedico.DisplayMember = "ApeNomMedico";
-                cboMedico.SelectedIndex = 0;
+                //llenamos el Formulario:
+                objResultadoDC = objServicioResultado.ConsultarResultado(this.strCodigo);
+                mskcodResultado.Text = objResultadoDC.codResultado.ToString();
+                cboPaciente.SelectedValue = objResultadoDC.codPaciente;
+                cboOrina.SelectedValue = objResultadoDC.orina;
+                cboEspirometria.SelectedValue = objResultadoDC.spirometria;
+                cboPsicologia.SelectedValue = objResultadoDC.psicologia;
+                cboSangre.SelectedValue = objResultadoDC.sangre;
+                cboRayosx.SelectedValue = objResultadoDC.rayosX;
+                cboAudicion.SelectedValue = objResultadoDC.audicion;
+                cboVista.SelectedValue = objResultadoDC.vista;
+                cboEkg.SelectedValue = objResultadoDC.ekg;
+                cboEnfermedad.SelectedValue = objResultadoDC.codEnfermedad;
+                txtRecomendacion.Text = objResultadoDC.recomendaciones;
+                mskPeso.Text = objResultadoDC.peso.ToString();
+                mskAltura.Text = objResultadoDC.altura.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Se ha producido el error: " + ex.Message);
             }
         }
-
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             try
@@ -78,20 +76,20 @@ namespace TestWindows_WCF_CheckSalud
                 //validamos
 
                 if (mskPeso.Text.Trim() == "" || mskAltura.Text.Trim() == ""
-                    || txtRecomendacion.Text.Trim() == ""
-                    || mskCosto.Text.Trim() == "")
+                    || txtRecomendacion.Text.Trim() == "" )
 
                 {
                     throw new Exception("Todos los datos son obligatorios");
                 }
 
                 //si pasa todo, procedemos:
+                objResultadoDC.codResultado = mskcodResultado.Text;
                 objResultadoDC.codPaciente = cboPaciente.SelectedValue.ToString();
-                objResultadoDC.codEnfermedad = cboEnfermedad.SelectedValue.ToString();
-                objResultadoDC.Usu_Registro = "pepe20";
+                objResultadoDC.codEnfermedad = cboEnfermedad.SelectedValue.ToString();                
                 objResultadoDC.recomendaciones = txtRecomendacion.Text.Trim();
                 objResultadoDC.altura = Convert.ToSingle(mskAltura.Text.Trim());
                 objResultadoDC.peso = Convert.ToSingle(mskPeso.Text.Trim());
+                objResultadoDC.Usu_Registro = "pepe20";
 
                 objResultadoDC.orina = cboOrina.SelectedItem.ToString();
                 objResultadoDC.spirometria = cboEspirometria.SelectedItem.ToString();
@@ -103,44 +101,12 @@ namespace TestWindows_WCF_CheckSalud
                 objResultadoDC.ekg = cboEkg.SelectedItem.ToString();
 
 
-                //Datos para ingresar Analisis:
-                objAnalisisDC.descAnalisis = "EXAMEN PREOCUPACIONAL";
-                objAnalisisDC.costo = Convert.ToDouble(mskCosto.Text.Trim());
-                objAnalisisDC.Estado = 1;
-                objAnalisisDC.Usu_Registro = "pepe20";
-
-                //Datos para ingresar Evaluacion:
-                objEvaluacionDC.Fec_Eva = dtFEvaluacion.Value.ToShortDateString();
-                objEvaluacionDC.codMedico = cboMedico.SelectedValue.ToString();
-                objEvaluacionDC.codAuditor = cboAuditor.SelectedValue.ToString();
-                objEvaluacionDC.Estado = 1;
-                objEvaluacionDC.Usu_Registro = "pepe20";
-
-                if (objServicioAnalisis.InsertarAnalisis(objAnalisisDC) == true)
-                {
-                    //Ingresamos Analisis si todo sale bien
-                }
-                else throw new Exception("No se inserto el registro, contacte con IT");
-
-                if (objServicioEvaluacion.InsertarEvaluacion(objEvaluacionDC) == true)
-                {
-                    //Ingresamos Evaluacion si todo sale bien
-                }
-                else throw new Exception("No se inserto el registro, contacte con IT");
-
-                objAnalisisDC = objServicioAnalisis.ConsultarUltAnalisis();
-                objEvaluacionDC = objServicioEvaluacion.ConsultarUltEvaluacion();
-
-                //Agregamos los codigos de analisis y evaluacion a Resultado :
-                objResultadoDC.codAnalisis = objAnalisisDC.codAnalisis;
-                objResultadoDC.codEvaluacion = objEvaluacionDC.codEvaluacion;
-
-                if (objServicioResultado.InsertarResultado(objResultadoDC) == true)
+                if (objServicioResultado.ActualizarResultado(objResultadoDC) == true)
                 {
                     //Ingresamos resultado si todo esta bien
                     this.Close();
                 }
-                else throw new Exception("No se inserto el registro, contacte con IT");
+                else throw new Exception("No se Actualizo el registro, contacte con IT");
             }
             catch (Exception ex)
             {
@@ -148,7 +114,7 @@ namespace TestWindows_WCF_CheckSalud
             }
         }
 
-        
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

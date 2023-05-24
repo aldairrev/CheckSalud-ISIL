@@ -69,7 +69,7 @@ namespace WCF_CheckSalud
 
                 //obtenemos con LINQ la instancia de resultado 
                 var query = from miCkSalud in MisCkSalud.Tb_Resultados
-                            orderby miCkSalud.codAnalisis
+                            orderby miCkSalud.codResultado
                             select miCkSalud;
 
                 foreach(var objConsulta in query)
@@ -170,6 +170,124 @@ namespace WCF_CheckSalud
             {
                 throw new Exception(ex.Message);
                 return false;
+            }
+        }
+
+        //combox para resultado:
+
+        public List<CboEnfermedadDC> ListarCboEnfermedad()
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+                List<CboEnfermedadDC> objLista = new List<CboEnfermedadDC>();
+
+                //obtenemos con LINQ la lista
+                var query = from miCkSalud in MisCkSalud.Tb_Enfermedad
+                            orderby miCkSalud.codEnfermedad
+                            select miCkSalud;
+
+                foreach (var objConsulta in query)
+                {
+                    CboEnfermedadDC objCboEnfermedadDC = new CboEnfermedadDC();
+                    objCboEnfermedadDC.codEnfermedad = objConsulta.codEnfermedad;
+                    objCboEnfermedadDC.descEnfermedad = objConsulta.descEnfermedad;
+
+                    objLista.Add(objCboEnfermedadDC);
+                }
+                return objLista;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<CboPacienteDC> ListarCboPaciente()
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+                List<CboPacienteDC> objLista = new List<CboPacienteDC>();
+
+                //obtenemos con LINQ la lista
+                var query = from miCkSalud in MisCkSalud.Tb_Paciente
+                            orderby miCkSalud.codPaciente
+                            select miCkSalud;
+
+                foreach (var objConsulta in query)
+                {
+                    CboPacienteDC objCboPacienteDC = new CboPacienteDC();
+                    objCboPacienteDC.codPaciente = objConsulta.codPaciente;
+                    objCboPacienteDC.ApeNomPaciente = objConsulta.apePaciente + ", " +
+                                                 objConsulta.nomPaciente;
+
+                    objLista.Add(objCboPacienteDC);
+                }
+                return objLista;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<CboAuditorDC> listarCboAuditores()
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+                List<CboAuditorDC> objLista = new List<CboAuditorDC>();
+
+                //obtenemos con LINQ la lista
+                var query = from miCkSalud in MisCkSalud.Tb_Auditor
+                            orderby miCkSalud.codAuditor
+                            select miCkSalud;
+
+                foreach (var objConsulta in query)
+                {
+                    CboAuditorDC objAuditorDC = new CboAuditorDC();
+                    objAuditorDC.codAuditor = objConsulta.codAuditor;
+                    objAuditorDC.ApeNomAuditor = objConsulta.Tb_Medico.apeMedico + ", " +
+                                                 objConsulta.Tb_Medico.nomMedico;
+
+                    objLista.Add(objAuditorDC);
+                }
+                return objLista;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<CboMedicoDC> listarCboMedicoDC()
+        {
+            try
+            {
+                //declaro instancia del modelo BD
+                CheckSaludEntities MisCkSalud = new CheckSaludEntities();
+                List<CboMedicoDC> objLista = new List<CboMedicoDC>();
+
+                //obtenemos con LINQ la lista
+                var query = from miCkSalud in MisCkSalud.Tb_Medico
+                            orderby miCkSalud.codMedico
+                            select miCkSalud;
+
+                foreach (var objConsulta in query)
+                {
+                    CboMedicoDC objCboMedicoDC = new CboMedicoDC();
+                    objCboMedicoDC.codMedico = objConsulta.codMedico;
+                    objCboMedicoDC.ApeNomMedico = objConsulta.nomMedico + ", " +
+                                                 objConsulta.apeMedico; ;
+
+                    objLista.Add(objCboMedicoDC);
+                }
+                return objLista;
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

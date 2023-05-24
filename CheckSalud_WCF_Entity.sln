@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF_CheckSalud", "WCF_CheckSalud\WCF_CheckSalud.csproj", "{6EE413A0-E3AE-40D0-99DB-E14EB46838CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWindows_WCF_CheckSalud", "TestWindows_WCF_CheckSalud\TestWindows_WCF_CheckSalud.csproj", "{27F577F4-0316-4433-ABAE-8AC35FB1CA47}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6EE413A0-E3AE-40D0-99DB-E14EB46838CA} = {6EE413A0-E3AE-40D0-99DB-E14EB46838CA}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E823E1FA-878C-4B65-A74B-2B06217ABFD9}"
 	ProjectSection(SolutionItems) = preProject

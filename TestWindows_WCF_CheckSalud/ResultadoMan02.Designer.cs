@@ -29,41 +29,41 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboPaciente = new System.Windows.Forms.ComboBox();
+            this.cboOrina = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboPsicologia = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cboEspirometria = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.cboAudicion = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.cboRayosx = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.cboSangre = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.cboEkg = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.cboVista = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.cboEnfermedad = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mskPeso = new System.Windows.Forms.MaskedTextBox();
+            this.mskAltura = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtRecomendacion = new System.Windows.Forms.TextBox();
+            this.dtFEvaluacion = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.cboMedico = new System.Windows.Forms.ComboBox();
+            this.cboAuditor = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.mskCosto = new System.Windows.Forms.MaskedTextBox();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,25 +75,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Paciente:";
             // 
-            // comboBox1
+            // cboPaciente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(126, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cboPaciente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPaciente.FormattingEnabled = true;
+            this.cboPaciente.Location = new System.Drawing.Point(126, 20);
+            this.cboPaciente.Name = "cboPaciente";
+            this.cboPaciente.Size = new System.Drawing.Size(169, 21);
+            this.cboPaciente.TabIndex = 1;
             // 
-            // comboBox2
+            // cboOrina
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cboOrina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboOrina.FormattingEnabled = true;
+            this.cboOrina.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox2.Location = new System.Drawing.Point(126, 65);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(257, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cboOrina.Location = new System.Drawing.Point(126, 65);
+            this.cboOrina.Name = "cboOrina";
+            this.cboOrina.Size = new System.Drawing.Size(257, 21);
+            this.cboOrina.TabIndex = 3;
             // 
             // label2
             // 
@@ -104,17 +106,18 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Orina:";
             // 
-            // comboBox3
+            // cboPsicologia
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cboPsicologia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPsicologia.FormattingEnabled = true;
+            this.cboPsicologia.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox3.Location = new System.Drawing.Point(126, 134);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(257, 21);
-            this.comboBox3.TabIndex = 7;
+            this.cboPsicologia.Location = new System.Drawing.Point(126, 134);
+            this.cboPsicologia.Name = "cboPsicologia";
+            this.cboPsicologia.Size = new System.Drawing.Size(257, 21);
+            this.cboPsicologia.TabIndex = 7;
             // 
             // label3
             // 
@@ -125,17 +128,18 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Psicologia:";
             // 
-            // comboBox4
+            // cboEspirometria
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.cboEspirometria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEspirometria.FormattingEnabled = true;
+            this.cboEspirometria.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox4.Location = new System.Drawing.Point(126, 102);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(257, 21);
-            this.comboBox4.TabIndex = 5;
+            this.cboEspirometria.Location = new System.Drawing.Point(126, 102);
+            this.cboEspirometria.Name = "cboEspirometria";
+            this.cboEspirometria.Size = new System.Drawing.Size(257, 21);
+            this.cboEspirometria.TabIndex = 5;
             // 
             // label4
             // 
@@ -146,17 +150,18 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Espirometria:";
             // 
-            // comboBox5
+            // cboAudicion
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
+            this.cboAudicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAudicion.FormattingEnabled = true;
+            this.cboAudicion.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox5.Location = new System.Drawing.Point(503, 134);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(249, 21);
-            this.comboBox5.TabIndex = 13;
+            this.cboAudicion.Location = new System.Drawing.Point(503, 134);
+            this.cboAudicion.Name = "cboAudicion";
+            this.cboAudicion.Size = new System.Drawing.Size(249, 21);
+            this.cboAudicion.TabIndex = 13;
             // 
             // label5
             // 
@@ -167,17 +172,18 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Audicion:";
             // 
-            // comboBox6
+            // cboRayosx
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.cboRayosx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboRayosx.FormattingEnabled = true;
+            this.cboRayosx.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox6.Location = new System.Drawing.Point(503, 102);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(249, 21);
-            this.comboBox6.TabIndex = 11;
+            this.cboRayosx.Location = new System.Drawing.Point(503, 102);
+            this.cboRayosx.Name = "cboRayosx";
+            this.cboRayosx.Size = new System.Drawing.Size(249, 21);
+            this.cboRayosx.TabIndex = 11;
             // 
             // label6
             // 
@@ -188,17 +194,18 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Rayos X:";
             // 
-            // comboBox7
+            // cboSangre
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
+            this.cboSangre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSangre.FormattingEnabled = true;
+            this.cboSangre.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox7.Location = new System.Drawing.Point(503, 65);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(249, 21);
-            this.comboBox7.TabIndex = 9;
+            this.cboSangre.Location = new System.Drawing.Point(503, 65);
+            this.cboSangre.Name = "cboSangre";
+            this.cboSangre.Size = new System.Drawing.Size(249, 21);
+            this.cboSangre.TabIndex = 9;
             // 
             // label7
             // 
@@ -209,17 +216,18 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Sangre:";
             // 
-            // comboBox8
+            // cboEkg
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.cboEkg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEkg.FormattingEnabled = true;
+            this.cboEkg.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox8.Location = new System.Drawing.Point(503, 214);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(249, 21);
-            this.comboBox8.TabIndex = 19;
+            this.cboEkg.Location = new System.Drawing.Point(503, 214);
+            this.cboEkg.Name = "cboEkg";
+            this.cboEkg.Size = new System.Drawing.Size(249, 21);
+            this.cboEkg.TabIndex = 19;
             // 
             // label8
             // 
@@ -230,17 +238,18 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Ekg:";
             // 
-            // comboBox9
+            // cboVista
             // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
+            this.cboVista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboVista.FormattingEnabled = true;
+            this.cboVista.Items.AddRange(new object[] {
             "--No realizo--",
             "Resultados Positivos",
             "Resultados Negativos"});
-            this.comboBox9.Location = new System.Drawing.Point(503, 174);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(249, 21);
-            this.comboBox9.TabIndex = 17;
+            this.cboVista.Location = new System.Drawing.Point(503, 174);
+            this.cboVista.Name = "cboVista";
+            this.cboVista.Size = new System.Drawing.Size(249, 21);
+            this.cboVista.TabIndex = 17;
             // 
             // label9
             // 
@@ -260,13 +269,14 @@
             this.label11.TabIndex = 20;
             this.label11.Text = "Enfermedad:";
             // 
-            // comboBox11
+            // cboEnfermedad
             // 
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(126, 174);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(257, 21);
-            this.comboBox11.TabIndex = 21;
+            this.cboEnfermedad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEnfermedad.FormattingEnabled = true;
+            this.cboEnfermedad.Location = new System.Drawing.Point(126, 174);
+            this.cboEnfermedad.Name = "cboEnfermedad";
+            this.cboEnfermedad.Size = new System.Drawing.Size(257, 21);
+            this.cboEnfermedad.TabIndex = 21;
             // 
             // label12
             // 
@@ -277,21 +287,21 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Peso:";
             // 
-            // maskedTextBox1
+            // mskPeso
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(531, 23);
-            this.maskedTextBox1.Mask = "999.9";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(67, 20);
-            this.maskedTextBox1.TabIndex = 23;
+            this.mskPeso.Location = new System.Drawing.Point(531, 23);
+            this.mskPeso.Mask = "999.9";
+            this.mskPeso.Name = "mskPeso";
+            this.mskPeso.Size = new System.Drawing.Size(67, 20);
+            this.mskPeso.TabIndex = 23;
             // 
-            // maskedTextBox2
+            // mskAltura
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(685, 23);
-            this.maskedTextBox2.Mask = "9.99";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(67, 20);
-            this.maskedTextBox2.TabIndex = 25;
+            this.mskAltura.Location = new System.Drawing.Point(685, 23);
+            this.mskAltura.Mask = "9.99";
+            this.mskAltura.Name = "mskAltura";
+            this.mskAltura.Size = new System.Drawing.Size(67, 20);
+            this.mskAltura.TabIndex = 25;
             // 
             // label13
             // 
@@ -311,20 +321,20 @@
             this.label14.TabIndex = 26;
             this.label14.Text = "Recomendacion:";
             // 
-            // textBox1
+            // txtRecomendacion
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 255);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(626, 55);
-            this.textBox1.TabIndex = 27;
+            this.txtRecomendacion.Location = new System.Drawing.Point(126, 255);
+            this.txtRecomendacion.Multiline = true;
+            this.txtRecomendacion.Name = "txtRecomendacion";
+            this.txtRecomendacion.Size = new System.Drawing.Size(626, 55);
+            this.txtRecomendacion.TabIndex = 27;
             // 
-            // dateTimePicker1
+            // dtFEvaluacion
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(126, 214);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(228, 20);
-            this.dateTimePicker1.TabIndex = 28;
+            this.dtFEvaluacion.Location = new System.Drawing.Point(126, 214);
+            this.dtFEvaluacion.Name = "dtFEvaluacion";
+            this.dtFEvaluacion.Size = new System.Drawing.Size(228, 20);
+            this.dtFEvaluacion.TabIndex = 28;
             // 
             // label10
             // 
@@ -344,21 +354,23 @@
             this.label15.TabIndex = 30;
             this.label15.Text = "Medico que realizo los examenes:";
             // 
-            // comboBox10
+            // cboMedico
             // 
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(199, 335);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(179, 21);
-            this.comboBox10.TabIndex = 31;
+            this.cboMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMedico.FormattingEnabled = true;
+            this.cboMedico.Location = new System.Drawing.Point(199, 335);
+            this.cboMedico.Name = "cboMedico";
+            this.cboMedico.Size = new System.Drawing.Size(179, 21);
+            this.cboMedico.TabIndex = 31;
             // 
-            // comboBox12
+            // cboAuditor
             // 
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Location = new System.Drawing.Point(573, 333);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(179, 21);
-            this.comboBox12.TabIndex = 33;
+            this.cboAuditor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAuditor.FormattingEnabled = true;
+            this.cboAuditor.Location = new System.Drawing.Point(573, 333);
+            this.cboAuditor.Name = "cboAuditor";
+            this.cboAuditor.Size = new System.Drawing.Size(179, 21);
+            this.cboAuditor.TabIndex = 33;
             // 
             // label16
             // 
@@ -378,75 +390,80 @@
             this.label17.TabIndex = 34;
             this.label17.Text = "Costo:";
             // 
-            // maskedTextBox3
+            // mskCosto
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(83, 378);
-            this.maskedTextBox3.Mask = "9999.99";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(67, 20);
-            this.maskedTextBox3.TabIndex = 35;
+            this.mskCosto.Location = new System.Drawing.Point(83, 378);
+            this.mskCosto.Mask = "9999.99";
+            this.mskCosto.Name = "mskCosto";
+            this.mskCosto.Size = new System.Drawing.Size(67, 20);
+            this.mskCosto.TabIndex = 35;
             // 
-            // button1
+            // btnGrabar
             // 
-            this.button1.Location = new System.Drawing.Point(559, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 26);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Grabar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGrabar.Location = new System.Drawing.Point(559, 378);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(89, 26);
+            this.btnGrabar.TabIndex = 36;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(663, 378);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(89, 26);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Cerrar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(663, 378);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(89, 26);
+            this.btnCancelar.TabIndex = 37;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ResultadoMan02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(775, 414);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.maskedTextBox3);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGrabar);
+            this.Controls.Add(this.mskCosto);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.comboBox12);
+            this.Controls.Add(this.cboAuditor);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.comboBox10);
+            this.Controls.Add(this.cboMedico);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtFEvaluacion);
+            this.Controls.Add(this.txtRecomendacion);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.mskAltura);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mskPeso);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox11);
+            this.Controls.Add(this.cboEnfermedad);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.comboBox8);
+            this.Controls.Add(this.cboEkg);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox9);
+            this.Controls.Add(this.cboVista);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.cboAudicion);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox6);
+            this.Controls.Add(this.cboRayosx);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox7);
+            this.Controls.Add(this.cboSangre);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.cboPsicologia);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.cboEspirometria);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboOrina);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboPaciente);
             this.Controls.Add(this.label1);
             this.Name = "ResultadoMan02";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TestInsert Resultado";
+            this.Load += new System.EventHandler(this.ResultadoMan02_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,40 +472,40 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboPaciente;
+        private System.Windows.Forms.ComboBox cboOrina;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboPsicologia;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cboEspirometria;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox cboAudicion;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox cboRayosx;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox cboSangre;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox cboEkg;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox cboVista;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox cboEnfermedad;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mskPeso;
+        private System.Windows.Forms.MaskedTextBox mskAltura;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtRecomendacion;
+        private System.Windows.Forms.DateTimePicker dtFEvaluacion;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox10;
-        private System.Windows.Forms.ComboBox comboBox12;
+        private System.Windows.Forms.ComboBox cboMedico;
+        private System.Windows.Forms.ComboBox cboAuditor;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.MaskedTextBox mskCosto;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
