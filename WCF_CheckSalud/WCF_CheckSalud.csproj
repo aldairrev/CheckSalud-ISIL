@@ -218,6 +218,7 @@
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="IServicioAnalisis.cs" />
+    <Compile Include="IServicioConsultas.cs" />
     <Compile Include="IServicioEmpresa.cs" />
     <Compile Include="IServicioEvaluacion.cs" />
     <Compile Include="IServicioMedico.cs" />
@@ -225,6 +226,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service1.cs" />
     <Compile Include="ServicioAnalisis.cs" />
+    <Compile Include="ServicioConsultas.cs" />
     <Compile Include="ServicioEmpresa.cs" />
     <Compile Include="ServicioEvaluacion.cs" />
     <Compile Include="ServicioMedico.cs" />
