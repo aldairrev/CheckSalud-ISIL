@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.mskcodResultado = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboPaciente = new System.Windows.Forms.ComboBox();
             this.mskAltura = new System.Windows.Forms.MaskedTextBox();
@@ -58,6 +57,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.mskcodResultado = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -68,14 +68,6 @@
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Resultado:";
-            // 
-            // mskcodResultado
-            // 
-            this.mskcodResultado.Location = new System.Drawing.Point(159, 32);
-            this.mskcodResultado.Mask = "9999999999";
-            this.mskcodResultado.Name = "mskcodResultado";
-            this.mskcodResultado.Size = new System.Drawing.Size(100, 20);
-            this.mskcodResultado.TabIndex = 1;
             // 
             // label2
             // 
@@ -360,12 +352,23 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // mskcodResultado
+            // 
+            this.mskcodResultado.BackColor = System.Drawing.Color.Silver;
+            this.mskcodResultado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mskcodResultado.Location = new System.Drawing.Point(159, 25);
+            this.mskcodResultado.Name = "mskcodResultado";
+            this.mskcodResultado.Size = new System.Drawing.Size(100, 23);
+            this.mskcodResultado.TabIndex = 52;
+            this.mskcodResultado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ResultadoMan03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(764, 401);
+            this.Controls.Add(this.mskcodResultado);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.txtRecomendacion);
@@ -394,7 +397,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cboPaciente);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.mskcodResultado);
             this.Controls.Add(this.label1);
             this.Name = "ResultadoMan03";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -408,7 +410,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox mskcodResultado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboPaciente;
         private System.Windows.Forms.MaskedTextBox mskAltura;
@@ -437,5 +438,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Label mskcodResultado;
     }
 }

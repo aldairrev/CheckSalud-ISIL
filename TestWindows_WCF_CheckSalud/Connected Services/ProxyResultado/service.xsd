@@ -30,7 +30,7 @@
   <xs:element name="InsertarResultado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_CheckSalud" minOccurs="0" name="resultado" nillable="true" type="q3:ResultadoDC" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_CheckSalud" minOccurs="0" name="objResultadoDC" nillable="true" type="q3:ResultadoDC" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

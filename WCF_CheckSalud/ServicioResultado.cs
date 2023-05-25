@@ -33,6 +33,7 @@ namespace WCF_CheckSalud
                     objResultadoDC.codResultado = objConsulta.codResultado;
                     objResultadoDC.NomApePaciente = objConsulta.Tb_Paciente.nomPaciente +" , "+
                                                     objConsulta.Tb_Paciente.apePaciente;
+                    objResultadoDC.codEnfermedad = objConsulta.codEnfermedad;
                     objResultadoDC.peso = Convert.ToSingle(objConsulta.peso);
                     objResultadoDC.altura = Convert.ToSingle(objConsulta.altura);
                     objResultadoDC.sangre = objConsulta.sangre;

@@ -623,10 +623,10 @@ namespace TestWindows_WCF_CheckSalud.ProxyResultado {
         System.Threading.Tasks.Task<TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC[]> ListarResultadosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioResultado/InsertarResultado", ReplyAction="http://tempuri.org/IServicioResultado/InsertarResultadoResponse")]
-        bool InsertarResultado(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC resultado);
+        bool InsertarResultado(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC objResultadoDC);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioResultado/InsertarResultado", ReplyAction="http://tempuri.org/IServicioResultado/InsertarResultadoResponse")]
-        System.Threading.Tasks.Task<bool> InsertarResultadoAsync(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC resultado);
+        System.Threading.Tasks.Task<bool> InsertarResultadoAsync(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC objResultadoDC);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioResultado/ActualizarResultado", ReplyAction="http://tempuri.org/IServicioResultado/ActualizarResultadoResponse")]
         bool ActualizarResultado(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC objResultadoDC);
@@ -708,12 +708,12 @@ namespace TestWindows_WCF_CheckSalud.ProxyResultado {
             return base.Channel.ListarResultadosAsync();
         }
         
-        public bool InsertarResultado(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC resultado) {
-            return base.Channel.InsertarResultado(resultado);
+        public bool InsertarResultado(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC objResultadoDC) {
+            return base.Channel.InsertarResultado(objResultadoDC);
         }
         
-        public System.Threading.Tasks.Task<bool> InsertarResultadoAsync(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC resultado) {
-            return base.Channel.InsertarResultadoAsync(resultado);
+        public System.Threading.Tasks.Task<bool> InsertarResultadoAsync(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC objResultadoDC) {
+            return base.Channel.InsertarResultadoAsync(objResultadoDC);
         }
         
         public bool ActualizarResultado(TestWindows_WCF_CheckSalud.ProxyResultado.ResultadoDC objResultadoDC) {

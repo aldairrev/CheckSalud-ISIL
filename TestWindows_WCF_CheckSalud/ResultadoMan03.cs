@@ -25,41 +25,32 @@ namespace TestWindows_WCF_CheckSalud
         {
             try
             {
-                //cargar combos....
-                cboOrina.SelectedIndex = 0;
-                cboEspirometria.SelectedIndex = 0;
-                cboPsicologia.SelectedIndex = 0;
-                cboSangre.SelectedIndex = 0;
-                cboRayosx.SelectedIndex = 0;
-                cboAudicion.SelectedIndex = 0;
-                cboVista.SelectedIndex = 0;
-                cboEkg.SelectedIndex = 0;
-
+                
                 //CBOENFERMEDAD
                 cboEnfermedad.DataSource = objServicioResultado.ListarCboEnfermedad();
                 cboEnfermedad.ValueMember = "codEnfermedad";
-                cboEnfermedad.DisplayMember = "descEnfermedad";
-                cboEnfermedad.SelectedIndex = 0;
+                cboEnfermedad.DisplayMember = "descEnfermedad";                
 
                 //CBOPACIENTE
                 cboPaciente.DataSource = objServicioResultado.ListarCboPaciente();
                 cboPaciente.ValueMember = "codPaciente";
                 cboPaciente.DisplayMember = "ApeNomPaciente";
-                cboPaciente.SelectedIndex = 0;
 
                 //llenamos el Formulario:
-                objResultadoDC = objServicioResultado.ConsultarResultado(this.strCodigo);
-                mskcodResultado.Text = objResultadoDC.codResultado.ToString();
+                objResultadoDC = objServicioResultado.ConsultarResultado(strCodigo);
+                mskcodResultado.Text = objResultadoDC.codResultado;
                 cboPaciente.SelectedValue = objResultadoDC.codPaciente;
-                cboOrina.SelectedValue = objResultadoDC.orina;
-                cboEspirometria.SelectedValue = objResultadoDC.spirometria;
-                cboPsicologia.SelectedValue = objResultadoDC.psicologia;
-                cboSangre.SelectedValue = objResultadoDC.sangre;
-                cboRayosx.SelectedValue = objResultadoDC.rayosX;
-                cboAudicion.SelectedValue = objResultadoDC.audicion;
-                cboVista.SelectedValue = objResultadoDC.vista;
-                cboEkg.SelectedValue = objResultadoDC.ekg;
                 cboEnfermedad.SelectedValue = objResultadoDC.codEnfermedad;
+
+                cboOrina.Text = objResultadoDC.orina.ToString();
+                cboEspirometria.Text = objResultadoDC.spirometria.ToString();
+                cboPsicologia.Text = objResultadoDC.psicologia.ToString();
+                cboSangre.Text = objResultadoDC.sangre.ToString();
+                cboRayosx.Text = objResultadoDC.rayosX.ToString();
+                cboAudicion.Text = objResultadoDC.audicion.ToString();
+                cboVista.Text = objResultadoDC.vista.ToString();
+                cboEkg.Text = objResultadoDC.ekg.ToString();
+
                 txtRecomendacion.Text = objResultadoDC.recomendaciones;
                 mskPeso.Text = objResultadoDC.peso.ToString();
                 mskAltura.Text = objResultadoDC.altura.ToString();

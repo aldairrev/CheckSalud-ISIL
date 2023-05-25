@@ -15,10 +15,10 @@ namespace WCF_CheckSalud
         List<PacienteMedicoDC> ListarPacientesMedicoFechas(String strCod, DateTime fecIni, DateTime fecFin);
         [OperationContract]
         List<ConsultaPacienteDC> ListarConsultasPacientesFechas(String strCod, DateTime fecIni, DateTime fecFin);
-        [OperationContract]
+        /*[OperationContract]
         List<EmpresaPacienteDC> ListarPacientesEmpresa(String strCod);
         [OperationContract]
-        List<AnalisisMedicoDC> ListarAnalisisMedico(String strCod);
+        List<AnalisisMedicoDC> ListarAnalisisMedico(String strCod);*/
     }
     [DataContract]
     [Serializable]
@@ -80,7 +80,7 @@ namespace WCF_CheckSalud
         [DataMember]
         public String recomendaciones { get; set; }
         
-    }
+    }/*
     public class EmpresaPacienteDC
     {
         [DataMember]
@@ -88,5 +88,5 @@ namespace WCF_CheckSalud
     public class AnalisisMedicoDC
     {
         [DataMember]
-    }
+    }*/
 }
