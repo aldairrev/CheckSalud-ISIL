@@ -81,12 +81,14 @@ namespace WCF_CheckSalud
         public String recomendaciones { get; set; }
         
     }
+    
     public class EmpresaPacienteDC
     {
-        [DataMember]
+        
     }
     public class AnalisisMedicoDC
     {
-        [DataMember]
+        
     }
+    
 }
