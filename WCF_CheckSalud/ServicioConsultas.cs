@@ -20,5 +20,25 @@ namespace WCF_CheckSalud
         {
             return new List<ConsultaPacienteDC>();
         }
+
+        public List<AnalisisMedicoDC> ListarAnalisisMedico(string strCod)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ConsultaPacienteDC> ListarConsultasPacientesFechas(string strCod, DateTime fecIni, DateTime fecFin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<EmpresaPacienteDC> ListarPacientesEmpresa(string strCod)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<PacienteMedicoDC> ListarPacientesMedicoFechas(string strCod, DateTime fecIni, DateTime fecFin)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
