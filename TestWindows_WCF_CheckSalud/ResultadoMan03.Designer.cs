@@ -107,7 +107,7 @@
             // mskPeso
             // 
             this.mskPeso.Location = new System.Drawing.Point(112, 352);
-            this.mskPeso.Mask = "999.9";
+            this.mskPeso.Mask = "99.9";
             this.mskPeso.Name = "mskPeso";
             this.mskPeso.Size = new System.Drawing.Size(67, 20);
             this.mskPeso.TabIndex = 27;
