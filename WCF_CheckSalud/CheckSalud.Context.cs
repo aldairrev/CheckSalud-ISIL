@@ -21,7 +21,7 @@ namespace WCF_CheckSalud
     public partial class CheckSaludEntities : DbContext
     {
         public CheckSaludEntities()
-            : base(GetConnectionString())
+            : base("name=CheckSaludEntities")
         { }
         private static string GetConnectionString()
         {
