@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="bc4decb1-7d22-4a0e-857d-ab58d4019212" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="10dddbf4-010a-41fb-ad7e-3f1fbf43ca06" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="4e315b6a-f5dd-4544-8c3d-85d43b680d2b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9cf72fe3-5b55-4720-b008-d7eb580821f3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="a4b77789-42cb-4d41-ab63-8afa23de56e0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
-    <MetadataFile FileName="WCF_CheckSalud.xsd" MetadataType="Schema" ID="acc7ce3d-d29f-43a3-a562-743a4d9621ca" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="85b21914-5eaf-4c44-ad80-2383874ab20b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="06f81734-02df-4c16-b6eb-d928d122798e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="110b582f-0b64-450d-b3b8-9c633dd5d339" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
+    <MetadataFile FileName="WCF_CheckSalud.xsd" MetadataType="Schema" ID="8cf3172a-c80f-4313-b18e-1d23ac140de0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_CheckSalud/ServicioResultado/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

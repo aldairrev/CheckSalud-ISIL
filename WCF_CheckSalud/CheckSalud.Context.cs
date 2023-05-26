@@ -9,6 +9,7 @@
 
 namespace WCF_CheckSalud
 {
+    using DotNetEnv;
     using System;
     using System.Configuration;
     using System.Data.Entity;
@@ -16,6 +17,7 @@ namespace WCF_CheckSalud
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
+
     public partial class CheckSaludEntities : DbContext
     {
         public CheckSaludEntities()
