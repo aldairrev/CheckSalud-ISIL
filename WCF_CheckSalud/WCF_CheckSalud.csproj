@@ -270,7 +270,19 @@
     <Compile Include="usp_ConsultarMedico_Result.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ListarAnalisisxMedico_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ListarMedico_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPaciente3Fechas_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPacientesxEmpresas_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarResultados2_Result.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>
   </ItemGroup>

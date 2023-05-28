@@ -9,31 +9,19 @@
 
 namespace WCF_CheckSalud
 {
-    using DotNetEnv;
     using System;
-    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-
     public partial class CheckSaludEntities : DbContext
     {
         public CheckSaludEntities()
             : base("name=CheckSaludEntities")
-        { }
-        private static string GetConnectionString()
         {
-            DotNetEnv.Env.Load(); // Cargar las variables de entorno desde el archivo .env
-            DotNetEnv.Env.TraversePath().Load();
-
-            String connectionString = DotNetEnv.Env.GetString("DB_CONNECTION_STRING");
-            // Realiza cualquier otra manipulación necesaria en la cadena de conexión si es necesario
-
-            return connectionString;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -376,6 +364,58 @@ namespace WCF_CheckSalud
         public virtual ObjectResult<usp_ListarMedico_Result> usp_ListarMedico()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarMedico_Result>("usp_ListarMedico");
+        }
+    
+        public virtual ObjectResult<usp_ListarPaciente3Fechas_Result> usp_ListarPaciente3Fechas(string vCod, string fecini, string fecfin)
+        {
+            var vCodParameter = vCod != null ?
+                new ObjectParameter("vCod", vCod) :
+                new ObjectParameter("vCod", typeof(string));
+    
+            var feciniParameter = fecini != null ?
+                new ObjectParameter("fecini", fecini) :
+                new ObjectParameter("fecini", typeof(string));
+    
+            var fecfinParameter = fecfin != null ?
+                new ObjectParameter("fecfin", fecfin) :
+                new ObjectParameter("fecfin", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarPaciente3Fechas_Result>("usp_ListarPaciente3Fechas", vCodParameter, feciniParameter, fecfinParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarAnalisisxMedico_Result> usp_ListarAnalisisxMedico(string vcod)
+        {
+            var vcodParameter = vcod != null ?
+                new ObjectParameter("vcod", vcod) :
+                new ObjectParameter("vcod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarAnalisisxMedico_Result>("usp_ListarAnalisisxMedico", vcodParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarPacientesxEmpresas_Result> usp_ListarPacientesxEmpresas(string vcod)
+        {
+            var vcodParameter = vcod != null ?
+                new ObjectParameter("vcod", vcod) :
+                new ObjectParameter("vcod", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarPacientesxEmpresas_Result>("usp_ListarPacientesxEmpresas", vcodParameter);
+        }
+    
+        public virtual ObjectResult<usp_ListarResultados2_Result> usp_ListarResultados2(string vcod, Nullable<System.DateTime> fecini, Nullable<System.DateTime> fecfin)
+        {
+            var vcodParameter = vcod != null ?
+                new ObjectParameter("vcod", vcod) :
+                new ObjectParameter("vcod", typeof(string));
+    
+            var feciniParameter = fecini.HasValue ?
+                new ObjectParameter("fecini", fecini) :
+                new ObjectParameter("fecini", typeof(System.DateTime));
+    
+            var fecfinParameter = fecfin.HasValue ?
+                new ObjectParameter("fecfin", fecfin) :
+                new ObjectParameter("fecfin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarResultados2_Result>("usp_ListarResultados2", vcodParameter, feciniParameter, fecfinParameter);
         }
     }
 }
