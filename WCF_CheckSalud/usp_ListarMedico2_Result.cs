@@ -11,15 +11,9 @@ namespace WCF_CheckSalud
 {
     using System;
     
-    public partial class usp_ListarAnalisisxMedico_Result
+    public partial class usp_ListarMedico2_Result
     {
-        public string codAnalisis { get; set; }
         public string codMedico { get; set; }
-        public string ApeNomPaciente { get; set; }
-        public string Lugar_de_trabajo { get; set; }
-        public string TipoAnális { get; set; }
-        public Nullable<decimal> CostoAnálisis { get; set; }
-        public Nullable<System.DateTime> FechaEvaluacion { get; set; }
-        public string Estado { get; set; }
+        public string Medico { get; set; }
     }
 }

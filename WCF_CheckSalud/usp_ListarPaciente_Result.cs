@@ -11,17 +11,22 @@ namespace WCF_CheckSalud
 {
     using System;
     
-    public partial class usp_ListarMedico_Result
+    public partial class usp_ListarPaciente_Result
     {
         public string Codigo { get; set; }
         public string Nombre { get; set; }
-        public string Apellidos { get; set; }
-        public string Numero_de_Colegiatura { get; set; }
+        public string Apellido { get; set; }
         public System.DateTime Fecha_de_Nacimiento { get; set; }
-        public Nullable<int> Edad { get; set; }
-        public string Estado { get; set; }
-        public string Especialidad { get; set; }
-        public string Login_de_Usuario { get; set; }
+        public string DNI { get; set; }
+        public string Sexo { get; set; }
         public string Direccion { get; set; }
+        public string Ubigeo { get; set; }
+        public string Email { get; set; }
+        public string Telefono { get; set; }
+        public string Tipo_de_sangre { get; set; }
+        public string Estado { get; set; }
+        public string Tipo_cliente { get; set; }
+        public Nullable<System.DateTime> Fecha_Ingreso { get; set; }
+        public string Usuario_registro { get; set; }
     }
 }

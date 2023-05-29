@@ -10,16 +10,14 @@
 namespace WCF_CheckSalud
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class usp_ListarAnalisisxMedico_Result
+    public partial class sysdiagrams
     {
-        public string codAnalisis { get; set; }
-        public string codMedico { get; set; }
-        public string ApeNomPaciente { get; set; }
-        public string Lugar_de_trabajo { get; set; }
-        public string TipoAnális { get; set; }
-        public Nullable<decimal> CostoAnálisis { get; set; }
-        public Nullable<System.DateTime> FechaEvaluacion { get; set; }
-        public string Estado { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

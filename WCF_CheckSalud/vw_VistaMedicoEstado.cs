@@ -10,24 +10,22 @@
 namespace WCF_CheckSalud
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class usp_ListarPaciente3Fechas_Result
+    public partial class vw_VistaMedicoEstado
     {
-        public string Codigo { get; set; }
         public string codMedico { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public System.DateTime Fecha_de_Nacimiento { get; set; }
-        public string DNI { get; set; }
-        public string Sexo { get; set; }
-        public string Direccion { get; set; }
-        public string Ubigeo { get; set; }
-        public string Email { get; set; }
-        public string Telefono { get; set; }
-        public string Tipo_de_sangre { get; set; }
+        public string Especialidad { get; set; }
         public string Estado { get; set; }
-        public string Tipo_cliente { get; set; }
-        public Nullable<System.DateTime> Fecha_Ingreso { get; set; }
-        public string Usuario_registro { get; set; }
+        public System.DateTime fechaNacimiento { get; set; }
+        public Nullable<int> Edad { get; set; }
+        public string dniMedic { get; set; }
+        public string direcMedico { get; set; }
+        public string emailMedico { get; set; }
+        public Nullable<int> Años_de_trabajo { get; set; }
+        public Nullable<int> Cantidad_de_evaluaciones { get; set; }
+        public Nullable<int> Pacientes_Atendidos { get; set; }
     }
 }

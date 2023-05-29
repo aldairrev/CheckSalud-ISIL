@@ -18,6 +18,8 @@
           <Property Name="Fec_Ult_Mod" Type="datetime" />
           <Property Name="Usu_Ult_Mod" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Analisis_Aud' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tb_Auditor">
           <Key>
             <PropertyRef Name="codAuditor" />
@@ -55,6 +57,8 @@
           <Property Name="fec_Ingreso" Type="datetime" />
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Empresa_Aud' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tb_Enfermedad">
           <Key>
             <PropertyRef Name="codEnfermedad" />
@@ -106,6 +110,8 @@
           <Property Name="Id_Ubigeo" Type="nchar" MaxLength="6" Nullable="false" />
           <Property Name="fec_ingreso" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Medico_Aud' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tb_Paciente">
           <Key>
             <PropertyRef Name="codPaciente" />
@@ -131,6 +137,8 @@
           <Property Name="Usu_Ult_Mod" Type="nvarchar" MaxLength="20" />
           <Property Name="Id_Ubigeo" Type="nchar" MaxLength="6" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Paciente_Aud' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tb_Resultados">
           <Key>
             <PropertyRef Name="codResultado" />
@@ -156,6 +164,8 @@
           <Property Name="Fec_Ult_Mod" Type="datetime" />
           <Property Name="Usu_Ult_Mod" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Resultados_Aud' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Tb_Ubicacion">
           <Key>
             <PropertyRef Name="Id_Ubigeo" />
@@ -359,6 +369,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_ActualizarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+          <Parameter Name="vDes" Type="varchar" Mode="In" />
+          <Parameter Name="vCos" Type="money" Mode="In" />
+          <Parameter Name="vEst" Type="int" Mode="In" />
+          <Parameter Name="vUsu_Ult_Mod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ActualizarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VcodEmpresa" Type="nvarchar" Mode="In" />
+          <Parameter Name="VRaz_soc_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VDir_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VTel_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VRuc_emp" Type="nchar" Mode="In" />
+          <Parameter Name="VRep_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VId_ubigeo" Type="nchar" Mode="In" />
+          <Parameter Name="Vestado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ActualizarEstadoPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+          <Parameter Name="vNom" Type="nvarchar" Mode="In" />
+          <Parameter Name="vApe" Type="nvarchar" Mode="In" />
+          <Parameter Name="vFNac" Type="date" Mode="In" />
+          <Parameter Name="vDni" Type="nchar" Mode="In" />
+          <Parameter Name="vSexo" Type="int" Mode="In" />
+          <Parameter Name="vDir" Type="varchar" Mode="In" />
+          <Parameter Name="vSang" Type="char" Mode="In" />
+          <Parameter Name="vEmail" Type="varchar" Mode="In" />
+          <Parameter Name="vFIngr" Type="datetime" Mode="In" />
+          <Parameter Name="vTelef" Type="nvarchar" Mode="In" />
+          <Parameter Name="vEsta" Type="int" Mode="In" />
+          <Parameter Name="vTipo" Type="int" Mode="In" />
+          <Parameter Name="vCEmpr" Type="nvarchar" Mode="In" />
+          <Parameter Name="vUsu_Ult_Mod" Type="nvarchar" Mode="In" />
+          <Parameter Name="vId_Ubigeo" Type="nchar" Mode="In" />
+        </Function>
         <Function Name="usp_ActualizarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vCodMedico" Type="nchar" Mode="In" />
           <Parameter Name="dniMedic" Type="nchar" Mode="In" />
@@ -391,20 +436,77 @@
           <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
           <Parameter Name="vUsu_Ult_Mod" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="usp_ConsultarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VcodEmpresa" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_ConsultarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vCodMedico" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarMedicoPaci" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarPacienteResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login_Usuario" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_EliminarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VcodEmpresa" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="usp_EliminarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VcodMedico" Type="nchar" Mode="In" />
         </Function>
+        <Function Name="usp_EliminarPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="char" Mode="In" />
+        </Function>
         <Function Name="usp_EliminarResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vCod" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="usp_EmpresasPorTrabajadores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_InsertarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vDes" Type="varchar" Mode="In" />
           <Parameter Name="vCos" Type="money" Mode="In" />
           <Parameter Name="vEst" Type="int" Mode="In" />
           <Parameter Name="vUsu_Reg" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VRaz_soc_empl" Type="nvarchar" Mode="In" />
+          <Parameter Name="VDir_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VTel_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VRuc_emp" Type="nchar" Mode="In" />
+          <Parameter Name="VRep_emp" Type="nvarchar" Mode="In" />
+          <Parameter Name="VId_ubigeo" Type="nchar" Mode="In" />
+          <Parameter Name="Vestado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertarEstadoPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vNom" Type="nvarchar" Mode="In" />
+          <Parameter Name="vApe" Type="nvarchar" Mode="In" />
+          <Parameter Name="vFNac" Type="date" Mode="In" />
+          <Parameter Name="vDni" Type="nchar" Mode="In" />
+          <Parameter Name="vSexo" Type="int" Mode="In" />
+          <Parameter Name="vDir" Type="varchar" Mode="In" />
+          <Parameter Name="vSang" Type="char" Mode="In" />
+          <Parameter Name="vEmail" Type="varchar" Mode="In" />
+          <Parameter Name="vFIngr" Type="datetime" Mode="In" />
+          <Parameter Name="vTelef" Type="nvarchar" Mode="In" />
+          <Parameter Name="vEsta" Type="int" Mode="In" />
+          <Parameter Name="vTipo" Type="int" Mode="In" />
+          <Parameter Name="vCEmpr" Type="nvarchar" Mode="In" />
+          <Parameter Name="vUsu_Reg" Type="nvarchar" Mode="In" />
+          <Parameter Name="vId_Ubigeo" Type="nchar" Mode="In" />
         </Function>
         <Function Name="usp_InsertarEvaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vFEva" Type="date" Mode="In" />
@@ -446,22 +548,74 @@
           <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
           <Parameter Name="vUsu_Registro" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="usp_ListarAnalisisxMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vcod" Type="nchar" Mode="In" />
+        <Function Name="usp_InsertarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Pass_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Usu_Registro" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="usp_ListarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarAuditor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarEnfermedad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarEspecialidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarMedico2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarPaciente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarPaciente2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarPaciente3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="nchar" Mode="In" />
+        </Function>
         <Function Name="usp_ListarPaciente3Fechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vCod" Type="nchar" Mode="In" />
           <Parameter Name="fecini" Type="nchar" Mode="In" />
           <Parameter Name="fecfin" Type="nchar" Mode="In" />
         </Function>
-        <Function Name="usp_ListarPacientesxEmpresas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="vcod" Type="nvarchar" Mode="In" />
+        <Function Name="usp_ListarResultados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarResultados_Paginacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cod_Paci" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_med" Type="nvarchar" Mode="In" />
+          <Parameter Name="Estado" Type="varchar" Mode="In" />
+          <Parameter Name="NumPag" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_ListarResultados2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vcod" Type="char" Mode="In" />
           <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
           <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="usp_ListarUbicacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarUltAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListarUltEvaluacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_NumPag_ListarResultados_Paginacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Cod_Paci" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cod_med" Type="nvarchar" Mode="In" />
+          <Parameter Name="Estado" Type="varchar" Mode="In" />
+          <Parameter Name="NUMREG" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_registroResultado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vCod" Type="varchar" Mode="InOut" />
+          <Parameter Name="vPeso" Type="decimal" Mode="In" />
+          <Parameter Name="vAltura" Type="decimal" Mode="In" />
+          <Parameter Name="vSangre" Type="nvarchar" Mode="In" />
+          <Parameter Name="vOrina" Type="nvarchar" Mode="In" />
+          <Parameter Name="vEkg" Type="nvarchar" Mode="In" />
+          <Parameter Name="vSpiro" Type="nvarchar" Mode="In" />
+          <Parameter Name="vPsico" Type="nvarchar" Mode="In" />
+          <Parameter Name="vXray" Type="nvarchar" Mode="In" />
+          <Parameter Name="vAudi" Type="nvarchar" Mode="In" />
+          <Parameter Name="vVisi" Type="nvarchar" Mode="In" />
+          <Parameter Name="vCodAnal" Type="char" Mode="InOut" />
+          <Parameter Name="vCodEva" Type="char" Mode="InOut" />
+          <Parameter Name="vCodEnfe" Type="char" Mode="In" />
+          <Parameter Name="vRecom" Type="nvarchar" Mode="In" />
+          <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
+          <Parameter Name="vUsu_Registro" Type="nvarchar" Mode="In" />
+          <Parameter Name="desAna" Type="nvarchar" Mode="In" />
+          <Parameter Name="costo" Type="money" Mode="In" />
+          <Parameter Name="usuarioRA" Type="nvarchar" Mode="In" />
+          <Parameter Name="fec_eva" Type="date" Mode="In" />
+          <Parameter Name="codmedico" Type="nchar" Mode="In" />
+          <Parameter Name="codauditor" Type="char" Mode="In" />
+          <Parameter Name="usuarioRE" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="CheckSalud_DBModelStoreContainer">
           <EntitySet Name="Tb_Analisis" EntityType="Self.Tb_Analisis" Schema="dbo" store:Type="Tables" />
@@ -1102,6 +1256,156 @@
             <Parameter Name="fecini" Mode="In" Type="DateTime" />
             <Parameter Name="fecfin" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="usp_ActualizarAnalisis">
+            <Parameter Name="vCod" Mode="In" Type="String" />
+            <Parameter Name="vDes" Mode="In" Type="String" />
+            <Parameter Name="vCos" Mode="In" Type="Decimal" />
+            <Parameter Name="vEst" Mode="In" Type="Int32" />
+            <Parameter Name="vUsu_Ult_Mod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ActualizarEmpresa">
+            <Parameter Name="VcodEmpresa" Mode="In" Type="String" />
+            <Parameter Name="VRaz_soc_emp" Mode="In" Type="String" />
+            <Parameter Name="VDir_emp" Mode="In" Type="String" />
+            <Parameter Name="VTel_emp" Mode="In" Type="String" />
+            <Parameter Name="VRuc_emp" Mode="In" Type="String" />
+            <Parameter Name="VRep_emp" Mode="In" Type="String" />
+            <Parameter Name="VId_ubigeo" Mode="In" Type="String" />
+            <Parameter Name="Vestado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ActualizarEstadoPaciente">
+            <Parameter Name="vCod" Mode="In" Type="String" />
+            <Parameter Name="vNom" Mode="In" Type="String" />
+            <Parameter Name="vApe" Mode="In" Type="String" />
+            <Parameter Name="vFNac" Mode="In" Type="DateTime" />
+            <Parameter Name="vDni" Mode="In" Type="String" />
+            <Parameter Name="vSexo" Mode="In" Type="Int32" />
+            <Parameter Name="vDir" Mode="In" Type="String" />
+            <Parameter Name="vSang" Mode="In" Type="String" />
+            <Parameter Name="vEmail" Mode="In" Type="String" />
+            <Parameter Name="vFIngr" Mode="In" Type="DateTime" />
+            <Parameter Name="vTelef" Mode="In" Type="String" />
+            <Parameter Name="vEsta" Mode="In" Type="Int32" />
+            <Parameter Name="vTipo" Mode="In" Type="Int32" />
+            <Parameter Name="vCEmpr" Mode="In" Type="String" />
+            <Parameter Name="vUsu_Ult_Mod" Mode="In" Type="String" />
+            <Parameter Name="vId_Ubigeo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarAnalisis" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarAnalisis_Result)">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarEmpresa" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarEmpresa_Result)">
+          <Parameter Name="VcodEmpresa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarMedicoPaci" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarMedicoPaci_Result)">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarPaciente" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarPaciente_Result)">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarPacienteResult" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarPacienteResult_Result)">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarResultado" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarResultado_Result)">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultarUsuario" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarUsuario_Result)">
+          <Parameter Name="Login_Usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarAnalisis">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarEmpresa">
+          <Parameter Name="VcodEmpresa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EliminarPaciente">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EmpresasPorTrabajadores" ReturnType="Collection(CheckSalud_DBModel.usp_EmpresasPorTrabajadores_Result)" />
+          <FunctionImport Name="usp_InsertarEmpresa">
+            <Parameter Name="VRaz_soc_empl" Mode="In" Type="String" />
+            <Parameter Name="VDir_emp" Mode="In" Type="String" />
+            <Parameter Name="VTel_emp" Mode="In" Type="String" />
+            <Parameter Name="VRuc_emp" Mode="In" Type="String" />
+            <Parameter Name="VRep_emp" Mode="In" Type="String" />
+            <Parameter Name="VId_ubigeo" Mode="In" Type="String" />
+            <Parameter Name="Vestado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarEstadoPaciente">
+            <Parameter Name="vNom" Mode="In" Type="String" />
+            <Parameter Name="vApe" Mode="In" Type="String" />
+            <Parameter Name="vFNac" Mode="In" Type="DateTime" />
+            <Parameter Name="vDni" Mode="In" Type="String" />
+            <Parameter Name="vSexo" Mode="In" Type="Int32" />
+            <Parameter Name="vDir" Mode="In" Type="String" />
+            <Parameter Name="vSang" Mode="In" Type="String" />
+            <Parameter Name="vEmail" Mode="In" Type="String" />
+            <Parameter Name="vFIngr" Mode="In" Type="DateTime" />
+            <Parameter Name="vTelef" Mode="In" Type="String" />
+            <Parameter Name="vEsta" Mode="In" Type="Int32" />
+            <Parameter Name="vTipo" Mode="In" Type="Int32" />
+            <Parameter Name="vCEmpr" Mode="In" Type="String" />
+            <Parameter Name="vUsu_Reg" Mode="In" Type="String" />
+            <Parameter Name="vId_Ubigeo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertarUsuario">
+            <Parameter Name="Login_Usuario" Mode="In" Type="String" />
+            <Parameter Name="Pass_Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usu_Registro" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarAnalisis" ReturnType="Collection(CheckSalud_DBModel.usp_ListarAnalisis_Result)" />
+          <FunctionImport Name="usp_ListarAuditor" ReturnType="Collection(CheckSalud_DBModel.usp_ListarAuditor_Result)" />
+          <FunctionImport Name="usp_ListarEmpresa" ReturnType="Collection(CheckSalud_DBModel.usp_ListarEmpresa_Result)" />
+          <FunctionImport Name="usp_ListarEnfermedad" ReturnType="Collection(CheckSalud_DBModel.usp_ListarEnfermedad_Result)" />
+          <FunctionImport Name="usp_ListarEspecialidad" ReturnType="Collection(CheckSalud_DBModel.usp_ListarEspecialidad_Result)" />
+          <FunctionImport Name="usp_ListarMedico2" ReturnType="Collection(CheckSalud_DBModel.usp_ListarMedico2_Result)" />
+          <FunctionImport Name="usp_ListarPaciente" ReturnType="Collection(CheckSalud_DBModel.usp_ListarPaciente_Result)" />
+          <FunctionImport Name="usp_ListarPaciente2" ReturnType="Collection(CheckSalud_DBModel.usp_ListarPaciente2_Result)" />
+          <FunctionImport Name="usp_ListarPaciente3" ReturnType="Collection(CheckSalud_DBModel.usp_ListarPaciente3_Result)">
+          <Parameter Name="vCod" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarResultados" ReturnType="Collection(CheckSalud_DBModel.usp_ListarResultados_Result)" />
+          <FunctionImport Name="usp_ListarResultados_Paginacion" ReturnType="Collection(CheckSalud_DBModel.usp_ListarResultados_Paginacion_Result)">
+            <Parameter Name="Cod_Paci" Mode="In" Type="String" />
+            <Parameter Name="Cod_med" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="String" />
+            <Parameter Name="NumPag" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListarUbicacion" ReturnType="Collection(CheckSalud_DBModel.usp_ListarUbicacion_Result)" />
+          <FunctionImport Name="usp_ListarUltAnalisis" ReturnType="Collection(CheckSalud_DBModel.usp_ListarUltAnalisis_Result)" />
+          <FunctionImport Name="usp_ListarUltEvaluacion" ReturnType="Collection(CheckSalud_DBModel.usp_ListarUltEvaluacion_Result)" />
+          <FunctionImport Name="usp_NumPag_ListarResultados_Paginacion">
+            <Parameter Name="Cod_Paci" Mode="In" Type="String" />
+            <Parameter Name="Cod_med" Mode="In" Type="String" />
+            <Parameter Name="Estado" Mode="In" Type="String" />
+            <Parameter Name="NUMREG" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_registroResultado">
+            <Parameter Name="vCod" Mode="InOut" Type="String" />
+            <Parameter Name="vPeso" Mode="In" Type="Decimal" />
+            <Parameter Name="vAltura" Mode="In" Type="Decimal" />
+            <Parameter Name="vSangre" Mode="In" Type="String" />
+            <Parameter Name="vOrina" Mode="In" Type="String" />
+            <Parameter Name="vEkg" Mode="In" Type="String" />
+            <Parameter Name="vSpiro" Mode="In" Type="String" />
+            <Parameter Name="vPsico" Mode="In" Type="String" />
+            <Parameter Name="vXray" Mode="In" Type="String" />
+            <Parameter Name="vAudi" Mode="In" Type="String" />
+            <Parameter Name="vVisi" Mode="In" Type="String" />
+            <Parameter Name="vCodAnal" Mode="InOut" Type="String" />
+            <Parameter Name="vCodEva" Mode="InOut" Type="String" />
+            <Parameter Name="vCodEnfe" Mode="In" Type="String" />
+            <Parameter Name="vRecom" Mode="In" Type="String" />
+            <Parameter Name="vCodPac" Mode="In" Type="String" />
+            <Parameter Name="vUsu_Registro" Mode="In" Type="String" />
+            <Parameter Name="desAna" Mode="In" Type="String" />
+            <Parameter Name="costo" Mode="In" Type="Decimal" />
+            <Parameter Name="usuarioRA" Mode="In" Type="String" />
+            <Parameter Name="fec_eva" Mode="In" Type="DateTime" />
+            <Parameter Name="codmedico" Mode="In" Type="String" />
+            <Parameter Name="codauditor" Mode="In" Type="String" />
+            <Parameter Name="usuarioRE" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ConsultarMedico_Result">
           <Property Type="String" Name="codigo" Nullable="false" MaxLength="4" />
@@ -1205,6 +1509,265 @@
           <Property Type="String" Name="Enfermedad" Nullable="true" MaxLength="99" />
           <Property Type="String" Name="Recomendaciones" Nullable="true" MaxLength="99" />
           <Property Type="String" Name="Medico_Evaluador" Nullable="false" MaxLength="41" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarAnalisis_Result">
+          <Property Type="String" Name="codAnalisis" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="NombrePaciente" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="ApellidoPaciente" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Lugar_de_trabajo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TipoAnális" Nullable="true" MaxLength="99" />
+          <Property Type="Decimal" Name="CostoAnálisis" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="FechaEvaluacion" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarEmpresa_Result">
+          <Property Type="String" Name="codEmpresa" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Raz_soc_emp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ruc_emp" Nullable="false" MaxLength="11" />
+          <Property Type="Int32" Name="Años_servicios" Nullable="true" />
+          <Property Type="String" Name="Estado_actual" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Id_Ubigeo" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Trabajadores_Evaluados" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarMedicoPaci_Result">
+          <Property Type="String" Name="codMedico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Especialidad" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" />
+          <Property Type="Int32" Name="Edad" Nullable="true" />
+          <Property Type="String" Name="dniMedic" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="direcMedico" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="emailMedico" Nullable="true" MaxLength="320" />
+          <Property Type="Int32" Name="Años_de_trabajo" Nullable="true" />
+          <Property Type="Int32" Name="Cantidad_de_evaluaciones" Nullable="true" />
+          <Property Type="Int32" Name="Pacientes_Atendidos" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarPaciente_Result">
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Apellido" Nullable="false" MaxLength="99" />
+          <Property Type="DateTime" Name="Fecha_de_Nacimiento" Nullable="false" />
+          <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+          <Property Type="Int32" Name="Sexo" Nullable="false" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Ubigeo" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="320" />
+          <Property Type="String" Name="Telefono" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="Tipo_de_sangre" Nullable="true" MaxLength="1" />
+          <Property Type="Int32" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="Empresa" Nullable="true" MaxLength="5" />
+          <Property Type="Int32" Name="Tipo_cliente" Nullable="true" />
+          <Property Type="DateTime" Name="Fecha_Ingreso" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usuario_registro" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarPacienteResult_Result">
+          <Property Type="String" Name="codPaciente" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Apellido" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Genero" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Lugar_de_trabajo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Fecha_Nacimiento" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Dni" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Dirección" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Tipo_Cliente" Nullable="true" MaxLength="14" />
+          <Property Type="String" Name="telefono" Nullable="false" MaxLength="9" />
+          <Property Type="Int32" Name="Cantidad_de_evaluaciones" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarResultado_Result">
+          <Property Type="String" Name="codResultado" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="codPaciente" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="NomApePaciente" Nullable="false" MaxLength="199" />
+          <Property Type="String" Name="dniPaciente" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="codAnalisis" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="codEvaluacion" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="codEnfermedad" Nullable="true" MaxLength="5" />
+          <Property Type="Double" Name="peso" Nullable="true" />
+          <Property Type="Double" Name="altura" Nullable="true" />
+          <Property Type="String" Name="sangre" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="orina" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="ekg" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="spirometria" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="psicologia" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="rayosX" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="audicion" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="vista" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="recomendaciones" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Usu_Registro" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultarUsuario_Result">
+          <Property Type="String" Name="Login_Usuario" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Pass_Usuario" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Niv_Usuario" Nullable="true" />
+          <Property Type="Int32" Name="Est_Usuario" Nullable="true" />
+          <Property Type="DateTime" Name="Fec_Registro" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Registro" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_EmpresasPorTrabajadores_Result">
+          <Property Type="String" Name="codigo" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Empresa" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Años_de_Servicio" Nullable="true" />
+          <Property Type="Int32" Name="Trabajadores_Evaluados" Nullable="true" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarAnalisis_Result">
+          <Property Type="String" Name="codAnalisis" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="NombrePaciente" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="ApellidoPaciente" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Lugar_de_trabajo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TipoAnális" Nullable="true" MaxLength="99" />
+          <Property Type="Decimal" Name="CostoAnálisis" Nullable="true" Precision="19" />
+          <Property Type="DateTime" Name="FechaEvaluacion" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarAuditor_Result">
+          <Property Type="String" Name="codAuditor" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Auditor" Nullable="false" MaxLength="41" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarEmpresa_Result">
+          <Property Type="String" Name="codEmpresa" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Raz_soc_emp" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ruc_emp" Nullable="false" MaxLength="11" />
+          <Property Type="Int32" Name="Años_servicios" Nullable="true" />
+          <Property Type="String" Name="Estado_actual" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Id_Ubigeo" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Departamento" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="Trabajadores_Evaluados" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarEnfermedad_Result">
+          <Property Type="String" Name="codEnfermedad" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="descEnfermedad" Nullable="true" MaxLength="99" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarEspecialidad_Result">
+          <Property Type="String" Name="codEspecialidad" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="descEspecialidad" Nullable="true" MaxLength="99" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarMedico2_Result">
+          <Property Type="String" Name="codMedico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Medico" Nullable="false" MaxLength="41" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarPaciente_Result">
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Apellido" Nullable="false" MaxLength="99" />
+          <Property Type="DateTime" Name="Fecha_de_Nacimiento" Nullable="false" />
+          <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Ubigeo" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="320" />
+          <Property Type="String" Name="Telefono" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="Tipo_de_sangre" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Tipo_cliente" Nullable="true" MaxLength="14" />
+          <Property Type="DateTime" Name="Fecha_Ingreso" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usuario_registro" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarPaciente2_Result">
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Paciente" Nullable="false" MaxLength="199" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarPaciente3_Result">
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="codMedico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Apellido" Nullable="false" MaxLength="99" />
+          <Property Type="DateTime" Name="Fecha_de_Nacimiento" Nullable="false" />
+          <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Ubigeo" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="320" />
+          <Property Type="String" Name="Telefono" Nullable="false" MaxLength="9" />
+          <Property Type="String" Name="Tipo_de_sangre" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Tipo_cliente" Nullable="true" MaxLength="14" />
+          <Property Type="DateTime" Name="Fecha_Ingreso" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usuario_registro" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarResultados_Result">
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Paciente" Nullable="false" MaxLength="199" />
+          <Property Type="String" Name="Fecha_de_nacimiento" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Edad" Nullable="true" />
+          <Property Type="String" Name="DNI" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Lugar_de_trabajo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tipo_de_examen" Nullable="true" MaxLength="99" />
+          <Property Type="DateTime" Name="Fecha_de_evaluacion" Nullable="true" />
+          <Property Type="Double" Name="Peso__KG_" Nullable="true" />
+          <Property Type="Double" Name="Altura__Mts_" Nullable="true" />
+          <Property Type="String" Name="Examen_de_sangre" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Examen_de_orina" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Electrocardiograma" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Espirometria" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Examen_psicologico" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Rayos_X" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Examen_de_audicion" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Examen_de_vista" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Enfermedad" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Recomendaciones" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="Medico_Evaluador" Nullable="false" MaxLength="41" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarResultados_Paginacion_Result">
+          <Property Type="String" Name="codResultado" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="codPaciente" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Nombre_Paciente" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Apellido_Paciente" Nullable="false" MaxLength="99" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
+          <Property Type="String" Name="Fecha_Nacimiento" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Edad" Nullable="true" />
+          <Property Type="String" Name="dniPaciente" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="Lugar_de_trabajo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tipo_Examen" Nullable="true" MaxLength="99" />
+          <Property Type="DateTime" Name="Fecha_Evaluacion" Nullable="true" />
+          <Property Type="Double" Name="Peso_Paciente_Kg" Nullable="true" />
+          <Property Type="Double" Name="Altura_Paciente_m" Nullable="true" />
+          <Property Type="String" Name="sangre" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="orina" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="ekg" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="spirometria" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="psicologia" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="rayosX" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="audicion" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="vista" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="recomendaciones" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="descEnfermedad" Nullable="true" MaxLength="99" />
+          <Property Type="String" Name="codigo_medico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="Nombre_Medico_Evaluador" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Apellidos_Medico_Evaluador" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Nombre_Medico_Auditor" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Apellido_Medico_Auditor" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarUbicacion_Result">
+          <Property Type="String" Name="Id_Ubigeo" Nullable="false" MaxLength="6" />
+          <Property Type="String" Name="Distrito" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarUltAnalisis_Result">
+          <Property Type="String" Name="codAnalisis" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="descAnalisis" Nullable="true" MaxLength="99" />
+          <Property Type="Decimal" Name="costo" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="estado" Nullable="false" />
+          <Property Type="DateTime" Name="Fec_reg" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Registro" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ListarUltEvaluacion_Result">
+          <Property Type="String" Name="codEvaluacion" Nullable="false" MaxLength="5" />
+          <Property Type="DateTime" Name="Fec_Eva" Nullable="true" />
+          <Property Type="Int32" Name="estado" Nullable="true" />
+          <Property Type="String" Name="codMedico" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="codAuditor" Nullable="false" MaxLength="3" />
+          <Property Type="DateTime" Name="Fec_reg" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Registro" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1463,48 +2026,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_ListarAnalisisxMedico" FunctionName="CheckSalud_DBModel.Store.usp_ListarAnalisisxMedico">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarAnalisisxMedico_Result">
-                <ScalarProperty Name="codAnalisis" ColumnName="codAnalisis" />
-                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
-                <ScalarProperty Name="ApeNomPaciente" ColumnName="ApeNomPaciente" />
-                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar_de_trabajo" />
-                <ScalarProperty Name="TipoAnális" ColumnName="TipoAnális" />
-                <ScalarProperty Name="CostoAnálisis" ColumnName="CostoAnálisis" />
-                <ScalarProperty Name="FechaEvaluacion" ColumnName="FechaEvaluacion" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_ListarPacientesxEmpresas" FunctionName="CheckSalud_DBModel.Store.usp_ListarPacientesxEmpresas">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarPacientesxEmpresas_Result">
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="codPaciente" ColumnName="codPaciente" />
-                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
-                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
-                <ScalarProperty Name="Edad" ColumnName="Edad" />
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar de trabajo" />
-                <ScalarProperty Name="Tipo_de_examen" ColumnName="Tipo de examen" />
-                <ScalarProperty Name="Fecha_de_evaluacion" ColumnName="Fecha de evaluacion" />
-                <ScalarProperty Name="Peso__KG_" ColumnName="Peso (KG)" />
-                <ScalarProperty Name="Altura__Mts_" ColumnName="Altura (Mts)" />
-                <ScalarProperty Name="Examen_de_sangre" ColumnName="Examen de sangre" />
-                <ScalarProperty Name="Examen_de_orina" ColumnName="Examen de orina" />
-                <ScalarProperty Name="Electrocardiograma" ColumnName="Electrocardiograma" />
-                <ScalarProperty Name="Espirometria" ColumnName="Espirometria" />
-                <ScalarProperty Name="Examen_psicologico" ColumnName="Examen psicologico" />
-                <ScalarProperty Name="Rayos_X" ColumnName="Rayos X" />
-                <ScalarProperty Name="Examen_de_audicion" ColumnName="Examen de audicion" />
-                <ScalarProperty Name="Examen_de_vista" ColumnName="Examen de vista" />
-                <ScalarProperty Name="Enfermedad" ColumnName="Enfermedad" />
-                <ScalarProperty Name="Recomendaciones" ColumnName="Recomendaciones" />
-                <ScalarProperty Name="Medico_Evaluador" ColumnName="Medico Evaluador" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_ListarResultados2" FunctionName="CheckSalud_DBModel.Store.usp_ListarResultados2">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarResultados2_Result">
@@ -1533,6 +2054,364 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ActualizarAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_ActualizarAnalisis" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarEmpresa" FunctionName="CheckSalud_DBModel.Store.usp_ActualizarEmpresa" />
+          <FunctionImportMapping FunctionImportName="usp_ActualizarEstadoPaciente" FunctionName="CheckSalud_DBModel.Store.usp_ActualizarEstadoPaciente" />
+          <FunctionImportMapping FunctionImportName="usp_ConsultarAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarAnalisis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarAnalisis_Result">
+                <ScalarProperty Name="codAnalisis" ColumnName="codAnalisis" />
+                <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+                <ScalarProperty Name="ApellidoPaciente" ColumnName="ApellidoPaciente" />
+                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar_de_trabajo" />
+                <ScalarProperty Name="TipoAnális" ColumnName="TipoAnális" />
+                <ScalarProperty Name="CostoAnálisis" ColumnName="CostoAnálisis" />
+                <ScalarProperty Name="FechaEvaluacion" ColumnName="FechaEvaluacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarEmpresa" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarEmpresa_Result">
+                <ScalarProperty Name="codEmpresa" ColumnName="codEmpresa" />
+                <ScalarProperty Name="Raz_soc_emp" ColumnName="Raz_soc_emp" />
+                <ScalarProperty Name="Ruc_emp" ColumnName="Ruc_emp" />
+                <ScalarProperty Name="Años_servicios" ColumnName="Años_servicios" />
+                <ScalarProperty Name="Estado_actual" ColumnName="Estado_actual" />
+                <ScalarProperty Name="Id_Ubigeo" ColumnName="Id_Ubigeo" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="Trabajadores_Evaluados" ColumnName="Trabajadores_Evaluados" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarMedicoPaci" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarMedicoPaci">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarMedicoPaci_Result">
+                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="dniMedic" ColumnName="dniMedic" />
+                <ScalarProperty Name="direcMedico" ColumnName="direcMedico" />
+                <ScalarProperty Name="emailMedico" ColumnName="emailMedico" />
+                <ScalarProperty Name="Años_de_trabajo" ColumnName="Años_de_trabajo" />
+                <ScalarProperty Name="Cantidad_de_evaluaciones" ColumnName="Cantidad_de_evaluaciones" />
+                <ScalarProperty Name="Pacientes_Atendidos" ColumnName="Pacientes_Atendidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarPaciente" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarPaciente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarPaciente_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Fecha_de_Nacimiento" ColumnName="Fecha de Nacimiento" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ubigeo" ColumnName="Ubigeo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Tipo_de_sangre" ColumnName="Tipo de sangre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Tipo_cliente" ColumnName="Tipo cliente" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha Ingreso" />
+                <ScalarProperty Name="Usuario_registro" ColumnName="Usuario registro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarPacienteResult" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarPacienteResult">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarPacienteResult_Result">
+                <ScalarProperty Name="codPaciente" ColumnName="codPaciente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar_de_trabajo" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="Dni" ColumnName="Dni" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="Tipo_Cliente" ColumnName="Tipo_Cliente" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="Cantidad_de_evaluaciones" ColumnName="Cantidad_de_evaluaciones" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarResultado" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarResultado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarResultado_Result">
+                <ScalarProperty Name="codResultado" ColumnName="codResultado" />
+                <ScalarProperty Name="codPaciente" ColumnName="codPaciente" />
+                <ScalarProperty Name="NomApePaciente" ColumnName="NomApePaciente" />
+                <ScalarProperty Name="dniPaciente" ColumnName="dniPaciente" />
+                <ScalarProperty Name="codAnalisis" ColumnName="codAnalisis" />
+                <ScalarProperty Name="codEvaluacion" ColumnName="codEvaluacion" />
+                <ScalarProperty Name="codEnfermedad" ColumnName="codEnfermedad" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="sangre" ColumnName="sangre" />
+                <ScalarProperty Name="orina" ColumnName="orina" />
+                <ScalarProperty Name="ekg" ColumnName="ekg" />
+                <ScalarProperty Name="spirometria" ColumnName="spirometria" />
+                <ScalarProperty Name="psicologia" ColumnName="psicologia" />
+                <ScalarProperty Name="rayosX" ColumnName="rayosX" />
+                <ScalarProperty Name="audicion" ColumnName="audicion" />
+                <ScalarProperty Name="vista" ColumnName="vista" />
+                <ScalarProperty Name="recomendaciones" ColumnName="recomendaciones" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultarUsuario" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarUsuario_Result">
+                <ScalarProperty Name="Login_Usuario" ColumnName="Login_Usuario" />
+                <ScalarProperty Name="Pass_Usuario" ColumnName="Pass_Usuario" />
+                <ScalarProperty Name="Niv_Usuario" ColumnName="Niv_Usuario" />
+                <ScalarProperty Name="Est_Usuario" ColumnName="Est_Usuario" />
+                <ScalarProperty Name="Fec_Registro" ColumnName="Fec_Registro" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_EliminarAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_EliminarAnalisis" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarEmpresa" FunctionName="CheckSalud_DBModel.Store.usp_EliminarEmpresa" />
+          <FunctionImportMapping FunctionImportName="usp_EliminarPaciente" FunctionName="CheckSalud_DBModel.Store.usp_EliminarPaciente" />
+          <FunctionImportMapping FunctionImportName="usp_EmpresasPorTrabajadores" FunctionName="CheckSalud_DBModel.Store.usp_EmpresasPorTrabajadores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_EmpresasPorTrabajadores_Result">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Años_de_Servicio" ColumnName="Años de Servicio" />
+                <ScalarProperty Name="Trabajadores_Evaluados" ColumnName="Trabajadores Evaluados" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_InsertarEmpresa" FunctionName="CheckSalud_DBModel.Store.usp_InsertarEmpresa" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarEstadoPaciente" FunctionName="CheckSalud_DBModel.Store.usp_InsertarEstadoPaciente" />
+          <FunctionImportMapping FunctionImportName="usp_InsertarUsuario" FunctionName="CheckSalud_DBModel.Store.usp_InsertarUsuario" />
+          <FunctionImportMapping FunctionImportName="usp_ListarAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_ListarAnalisis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarAnalisis_Result">
+                <ScalarProperty Name="codAnalisis" ColumnName="codAnalisis" />
+                <ScalarProperty Name="NombrePaciente" ColumnName="NombrePaciente" />
+                <ScalarProperty Name="ApellidoPaciente" ColumnName="ApellidoPaciente" />
+                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar_de_trabajo" />
+                <ScalarProperty Name="TipoAnális" ColumnName="TipoAnális" />
+                <ScalarProperty Name="CostoAnálisis" ColumnName="CostoAnálisis" />
+                <ScalarProperty Name="FechaEvaluacion" ColumnName="FechaEvaluacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarAuditor" FunctionName="CheckSalud_DBModel.Store.usp_ListarAuditor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarAuditor_Result">
+                <ScalarProperty Name="codAuditor" ColumnName="codAuditor" />
+                <ScalarProperty Name="Auditor" ColumnName="Auditor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarEmpresa" FunctionName="CheckSalud_DBModel.Store.usp_ListarEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarEmpresa_Result">
+                <ScalarProperty Name="codEmpresa" ColumnName="codEmpresa" />
+                <ScalarProperty Name="Raz_soc_emp" ColumnName="Raz_soc_emp" />
+                <ScalarProperty Name="Ruc_emp" ColumnName="Ruc_emp" />
+                <ScalarProperty Name="Años_servicios" ColumnName="Años_servicios" />
+                <ScalarProperty Name="Estado_actual" ColumnName="Estado_actual" />
+                <ScalarProperty Name="Id_Ubigeo" ColumnName="Id_Ubigeo" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="Trabajadores_Evaluados" ColumnName="Trabajadores_Evaluados" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarEnfermedad" FunctionName="CheckSalud_DBModel.Store.usp_ListarEnfermedad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarEnfermedad_Result">
+                <ScalarProperty Name="codEnfermedad" ColumnName="codEnfermedad" />
+                <ScalarProperty Name="descEnfermedad" ColumnName="descEnfermedad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarEspecialidad" FunctionName="CheckSalud_DBModel.Store.usp_ListarEspecialidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarEspecialidad_Result">
+                <ScalarProperty Name="codEspecialidad" ColumnName="codEspecialidad" />
+                <ScalarProperty Name="descEspecialidad" ColumnName="descEspecialidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarMedico2" FunctionName="CheckSalud_DBModel.Store.usp_ListarMedico2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarMedico2_Result">
+                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
+                <ScalarProperty Name="Medico" ColumnName="Medico" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarPaciente" FunctionName="CheckSalud_DBModel.Store.usp_ListarPaciente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarPaciente_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Fecha_de_Nacimiento" ColumnName="Fecha de Nacimiento" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ubigeo" ColumnName="Ubigeo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Tipo_de_sangre" ColumnName="Tipo de sangre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Tipo_cliente" ColumnName="Tipo cliente" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha Ingreso" />
+                <ScalarProperty Name="Usuario_registro" ColumnName="Usuario registro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarPaciente2" FunctionName="CheckSalud_DBModel.Store.usp_ListarPaciente2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarPaciente2_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarPaciente3" FunctionName="CheckSalud_DBModel.Store.usp_ListarPaciente3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarPaciente3_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Fecha_de_Nacimiento" ColumnName="Fecha de Nacimiento" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Ubigeo" ColumnName="Ubigeo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Tipo_de_sangre" ColumnName="Tipo de sangre" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Tipo_cliente" ColumnName="Tipo cliente" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha Ingreso" />
+                <ScalarProperty Name="Usuario_registro" ColumnName="Usuario registro" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarResultados" FunctionName="CheckSalud_DBModel.Store.usp_ListarResultados">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarResultados_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Paciente" ColumnName="Paciente" />
+                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar de trabajo" />
+                <ScalarProperty Name="Tipo_de_examen" ColumnName="Tipo de examen" />
+                <ScalarProperty Name="Fecha_de_evaluacion" ColumnName="Fecha de evaluacion" />
+                <ScalarProperty Name="Peso__KG_" ColumnName="Peso (KG)" />
+                <ScalarProperty Name="Altura__Mts_" ColumnName="Altura (Mts)" />
+                <ScalarProperty Name="Examen_de_sangre" ColumnName="Examen de sangre" />
+                <ScalarProperty Name="Examen_de_orina" ColumnName="Examen de orina" />
+                <ScalarProperty Name="Electrocardiograma" ColumnName="Electrocardiograma" />
+                <ScalarProperty Name="Espirometria" ColumnName="Espirometria" />
+                <ScalarProperty Name="Examen_psicologico" ColumnName="Examen psicologico" />
+                <ScalarProperty Name="Rayos_X" ColumnName="Rayos X" />
+                <ScalarProperty Name="Examen_de_audicion" ColumnName="Examen de audicion" />
+                <ScalarProperty Name="Examen_de_vista" ColumnName="Examen de vista" />
+                <ScalarProperty Name="Enfermedad" ColumnName="Enfermedad" />
+                <ScalarProperty Name="Recomendaciones" ColumnName="Recomendaciones" />
+                <ScalarProperty Name="Medico_Evaluador" ColumnName="Medico Evaluador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarResultados_Paginacion" FunctionName="CheckSalud_DBModel.Store.usp_ListarResultados_Paginacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarResultados_Paginacion_Result">
+                <ScalarProperty Name="codResultado" ColumnName="codResultado" />
+                <ScalarProperty Name="codPaciente" ColumnName="codPaciente" />
+                <ScalarProperty Name="Nombre_Paciente" ColumnName="Nombre_Paciente" />
+                <ScalarProperty Name="Apellido_Paciente" ColumnName="Apellido_Paciente" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="dniPaciente" ColumnName="dniPaciente" />
+                <ScalarProperty Name="Lugar_de_trabajo" ColumnName="Lugar_de_trabajo" />
+                <ScalarProperty Name="Tipo_Examen" ColumnName="Tipo_Examen" />
+                <ScalarProperty Name="Fecha_Evaluacion" ColumnName="Fecha_Evaluacion" />
+                <ScalarProperty Name="Peso_Paciente_Kg" ColumnName="Peso_Paciente_Kg" />
+                <ScalarProperty Name="Altura_Paciente_m" ColumnName="Altura_Paciente_m" />
+                <ScalarProperty Name="sangre" ColumnName="sangre" />
+                <ScalarProperty Name="orina" ColumnName="orina" />
+                <ScalarProperty Name="ekg" ColumnName="ekg" />
+                <ScalarProperty Name="spirometria" ColumnName="spirometria" />
+                <ScalarProperty Name="psicologia" ColumnName="psicologia" />
+                <ScalarProperty Name="rayosX" ColumnName="rayosX" />
+                <ScalarProperty Name="audicion" ColumnName="audicion" />
+                <ScalarProperty Name="vista" ColumnName="vista" />
+                <ScalarProperty Name="recomendaciones" ColumnName="recomendaciones" />
+                <ScalarProperty Name="descEnfermedad" ColumnName="descEnfermedad" />
+                <ScalarProperty Name="codigo_medico" ColumnName="codigo_medico" />
+                <ScalarProperty Name="Nombre_Medico_Evaluador" ColumnName="Nombre_Medico_Evaluador" />
+                <ScalarProperty Name="Apellidos_Medico_Evaluador" ColumnName="Apellidos_Medico_Evaluador" />
+                <ScalarProperty Name="Nombre_Medico_Auditor" ColumnName="Nombre_Medico_Auditor" />
+                <ScalarProperty Name="Apellido_Medico_Auditor" ColumnName="Apellido_Medico_Auditor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarUbicacion" FunctionName="CheckSalud_DBModel.Store.usp_ListarUbicacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarUbicacion_Result">
+                <ScalarProperty Name="Id_Ubigeo" ColumnName="Id_Ubigeo" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarUltAnalisis" FunctionName="CheckSalud_DBModel.Store.usp_ListarUltAnalisis">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarUltAnalisis_Result">
+                <ScalarProperty Name="codAnalisis" ColumnName="codAnalisis" />
+                <ScalarProperty Name="descAnalisis" ColumnName="descAnalisis" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="Fec_reg" ColumnName="Fec_reg" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListarUltEvaluacion" FunctionName="CheckSalud_DBModel.Store.usp_ListarUltEvaluacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ListarUltEvaluacion_Result">
+                <ScalarProperty Name="codEvaluacion" ColumnName="codEvaluacion" />
+                <ScalarProperty Name="Fec_Eva" ColumnName="Fec_Eva" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
+                <ScalarProperty Name="codAuditor" ColumnName="codAuditor" />
+                <ScalarProperty Name="Fec_reg" ColumnName="Fec_reg" />
+                <ScalarProperty Name="Usu_Registro" ColumnName="Usu_Registro" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_NumPag_ListarResultados_Paginacion" FunctionName="CheckSalud_DBModel.Store.usp_NumPag_ListarResultados_Paginacion" />
+          <FunctionImportMapping FunctionImportName="usp_registroResultado" FunctionName="CheckSalud_DBModel.Store.usp_registroResultado" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
