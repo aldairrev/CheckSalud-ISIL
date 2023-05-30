@@ -16,7 +16,7 @@ namespace TestWindows_WCF_CheckSalud
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ResultadoMan01());
+            Application.Run(new PacienteMan01());
         }
     }
 }
