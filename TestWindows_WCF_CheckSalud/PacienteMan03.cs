@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestWindows_WCF_CheckSalud.ProxyPaciente;
 
 namespace TestWindows_WCF_CheckSalud
 {
-    public partial class PacienteMan02 : Form
+    public partial class PacienteMan03 : Form
     {
         ProxyPaciente.PacienteDC objPacienteDC = new ProxyPaciente.PacienteDC();
         //Combox
@@ -18,7 +19,8 @@ namespace TestWindows_WCF_CheckSalud
         ProxyEmpresa.ServicioEmpresaClient objServicioEmpresa = new ProxyEmpresa.ServicioEmpresaClient();
         ProxyPaciente.ServicioPacienteClient objServicioPaciente = new ProxyPaciente.ServicioPacienteClient();
 
-        public PacienteMan02()
+        public String strCodigo { get; set; }
+        public PacienteMan03()
         {
             InitializeComponent();
         }
@@ -40,8 +42,23 @@ namespace TestWindows_WCF_CheckSalud
                 cbxEmpresa.DisplayMember = "descEmpresa";
                 cbxEmpresa.ValueMember = "codEmpresa";
 
-                cbxTipoSangre.SelectedIndex = 0;
-                cbxTipoCliente.SelectedIndex = 0;
+                objPacienteDC = objServicioPaciente.Consultar(strCodigo);
+
+                txtCodigo.Text = objPacienteDC.codPaciente;
+                txtNombre.Text = objPacienteDC.nomPaciente;
+                txtApellido.Text = objPacienteDC.apePaciente;
+                dtpNacimiento.Value = objPacienteDC.fechaNacimiento;
+                txtDni.Text = objPacienteDC.dniPaciente;
+                cbxSexo.SelectedIndex = objPacienteDC.sexo;
+                cbxTipoCliente.SelectedIndex = objPacienteDC.tipoCliente;
+                cbxTipoSangre.SelectedIndex = objPacienteDC.tipoSangre + 1;
+                txtDireccion.Text = objPacienteDC.direcPaciente;
+                txtEmail.Text = objPacienteDC.emailPaciente;
+                dtpIngreso.Value = objPacienteDC.fechaIngreso;
+                txtNumTelefono.Text = objPacienteDC.numTelefono;
+                cboDistrito.SelectedValue = objPacienteDC.Id_Ubigeo;
+                cbxEmpresa.SelectedValue = objPacienteDC.codEmpresa;
+                chkestado.Checked = objPacienteDC.estado > 0;
 
                 dtpIngreso.MinDate = new DateTime(2005, 6, 20);
                 dtpNacimiento.MinDate = new DateTime(1905, 1, 01);
@@ -83,7 +100,7 @@ namespace TestWindows_WCF_CheckSalud
                 objPacienteDC.estado = Convert.ToInt16(chkestado.Checked);
                 objPacienteDC.Usu_Registro = "maria20";
 
-                if (objServicioPaciente.Insertar(objPacienteDC) == true)
+                if (objServicioPaciente.Actualizar(objPacienteDC) == true)
                 {
                     this.Close();
                 }

@@ -20,7 +20,7 @@ namespace WCF_CheckSalud
 
                 MisCkSalud.usp_ActualizarEstadoPaciente(obj.codPaciente, obj.nomPaciente,
                     obj.apePaciente, obj.fechaNacimiento, obj.dniPaciente,
-                    obj.sexo, obj.direcPaciente, obj.tipoSangre,
+                    obj.sexo, obj.direcPaciente, obj.tipoSangre.ToString(),
                     obj.emailPaciente, obj.fechaIngreso, obj.numTelefono,
                     obj.estado, obj.tipoCliente, obj.codEmpresa, obj.Usu_Ult_Mod, obj.Id_Ubigeo);
                 MisCkSalud.SaveChanges();
@@ -56,7 +56,7 @@ namespace WCF_CheckSalud
                 obj.dniPaciente = objConsulta.dniPaciente;
                 obj.sexo = objConsulta.sexo;
                 obj.direcPaciente = objConsulta.direcPaciente;
-                obj.tipoSangre = objConsulta.tipoSangre;
+                obj.tipoSangre =  Convert.ToInt32(objConsulta.tipoSangre);
                 obj.fotoPaciente = objConsulta.fotoPaciente;
                 obj.emailPaciente = objConsulta.emailPaciente;
                 obj.fechaIngreso = (DateTime)objConsulta.fechaIngreso;
@@ -66,7 +66,7 @@ namespace WCF_CheckSalud
                 obj.codEmpresa = objConsulta.codEmpresa;
                 obj.Fec_Reg = (DateTime)objConsulta.Fec_reg;
                 obj.Usu_Registro = objConsulta.Usu_Registro;
-                obj.Fech_Ult_Mod = (DateTime)objConsulta.Fec_Ult_Mod;
+                obj.Fech_Ult_Mod = objConsulta.Fec_Ult_Mod ?? DateTime.Now;
                 obj.Usu_Ult_Mod = objConsulta.Usu_Ult_Mod;
                 obj.Id_Ubigeo = objConsulta.Id_Ubigeo;
 
@@ -102,17 +102,16 @@ namespace WCF_CheckSalud
             {
                 //declaro instancia del modelo BD
                 CheckSaludEntities MisCkSalud = new CheckSaludEntities();
-
                 MisCkSalud.usp_InsertarEstadoPaciente(obj.nomPaciente,
                     obj.apePaciente, obj.fechaNacimiento, obj.dniPaciente,
-                    obj.sexo, obj.direcPaciente, obj.tipoSangre,
+                    obj.sexo, obj.direcPaciente, obj.tipoSangre.ToString(),
                     obj.emailPaciente, obj.fechaIngreso, obj.numTelefono,
                     obj.estado, obj.tipoCliente, obj.codEmpresa,
                     obj.Usu_Registro, obj.Id_Ubigeo);
                 MisCkSalud.SaveChanges();
                 return true;
             }
-            catch (EntityException ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
                 return false;
@@ -142,7 +141,7 @@ namespace WCF_CheckSalud
                     obj.dniPaciente = objConsulta.dniPaciente;
                     obj.sexo = objConsulta.sexo;
                     obj.direcPaciente = objConsulta.direcPaciente;
-                    obj.tipoSangre = objConsulta.tipoSangre;
+                    obj.tipoSangre = Convert.ToInt32(objConsulta.tipoSangre);
                     obj.fotoPaciente = objConsulta.fotoPaciente;
                     obj.emailPaciente = objConsulta.emailPaciente;
                     obj.fechaIngreso = (DateTime)objConsulta.fechaIngreso;

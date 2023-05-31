@@ -29,8 +29,8 @@ namespace TestWindows_WCF_CheckSalud
         {
             try
             {
-                //PacienteMan02 obj02 = new PacienteMan02();
-                //obj02.ShowDialog();
+                PacienteMan02 obj02 = new PacienteMan02();
+                obj02.ShowDialog();
                 //refrescamos 
                 CargarDatos();
             }
@@ -59,11 +59,11 @@ namespace TestWindows_WCF_CheckSalud
         {
             try
             {
-                ResultadoMan03 objResultadoMan03 = new ResultadoMan03();
+                PacienteMan03 obj= new PacienteMan03();
                 //Obtenemos el codigo de resultado seleccionado:
                 String strCodigo = dtgResultados.CurrentRow.Cells[0].Value.ToString();
-                objResultadoMan03.strCodigo = strCodigo;
-                objResultadoMan03.ShowDialog();
+                obj.strCodigo = strCodigo;
+                obj.ShowDialog();
                 CargarDatos();
             }
             catch (Exception ex)
@@ -75,6 +75,11 @@ namespace TestWindows_WCF_CheckSalud
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtgResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

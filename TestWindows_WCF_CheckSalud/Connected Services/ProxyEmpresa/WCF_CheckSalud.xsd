@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_CheckSalud" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_CheckSalud" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EmpresaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="codEmpresa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estado" type="xs:short" />
+      <xs:element minOccurs="0" name="fechaIngreso" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="razSocEmp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="repEmp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rucEmp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmpresaDC" nillable="true" type="tns:EmpresaDC" />
+  <xs:complexType name="ArrayOfEmpresaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmpresaDC" nillable="true" type="tns:EmpresaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmpresaDC" nillable="true" type="tns:ArrayOfEmpresaDC" />
+</xs:schema>

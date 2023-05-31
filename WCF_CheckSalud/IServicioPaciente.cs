@@ -43,7 +43,7 @@ namespace WCF_CheckSalud
         [DataMember]
         public String direcPaciente { get; set; }
         [DataMember]
-        public String tipoSangre { get; set; }
+        public Int32 tipoSangre { get; set; }
         [DataMember]
         public byte[] fotoPaciente { get; set; }
         [DataMember]

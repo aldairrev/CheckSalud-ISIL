@@ -2,7 +2,7 @@
 
 namespace TestWindows_WCF_CheckSalud
 {
-    partial class PacienteMan02
+    partial class PacienteMan03
     {
         /// <summary>
         /// Required designer variable.
@@ -59,6 +59,8 @@ namespace TestWindows_WCF_CheckSalud
             this.label10 = new System.Windows.Forms.Label();
             this.cbxTipoSangre = new System.Windows.Forms.ComboBox();
             this.cbxTipoCliente = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -107,7 +109,7 @@ namespace TestWindows_WCF_CheckSalud
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(403, 27);
+            this.label3.Location = new System.Drawing.Point(370, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 4;
@@ -134,7 +136,7 @@ namespace TestWindows_WCF_CheckSalud
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(391, 56);
+            this.label.Location = new System.Drawing.Point(370, 57);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(38, 13);
             this.label.TabIndex = 8;
@@ -143,7 +145,7 @@ namespace TestWindows_WCF_CheckSalud
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(375, 86);
+            this.label7.Location = new System.Drawing.Point(370, 86);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 9;
@@ -196,7 +198,7 @@ namespace TestWindows_WCF_CheckSalud
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(381, 149);
+            this.label11.Location = new System.Drawing.Point(370, 149);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
             this.label11.TabIndex = 23;
@@ -273,7 +275,7 @@ namespace TestWindows_WCF_CheckSalud
             // lblCodEmpresa
             // 
             this.lblCodEmpresa.AutoSize = true;
-            this.lblCodEmpresa.Location = new System.Drawing.Point(375, 113);
+            this.lblCodEmpresa.Location = new System.Drawing.Point(370, 113);
             this.lblCodEmpresa.Name = "lblCodEmpresa";
             this.lblCodEmpresa.Size = new System.Drawing.Size(48, 13);
             this.lblCodEmpresa.TabIndex = 37;
@@ -338,12 +340,31 @@ namespace TestWindows_WCF_CheckSalud
             this.cbxTipoCliente.Size = new System.Drawing.Size(181, 21);
             this.cbxTipoCliente.TabIndex = 43;
             // 
-            // PacienteMan02
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(370, 185);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Cod Paciente";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(447, 182);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(197, 20);
+            this.txtCodigo.TabIndex = 45;
+            // 
+            // PacienteMan03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(686, 339);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.cbxTipoCliente);
             this.Controls.Add(this.cbxTipoSangre);
             this.Controls.Add(this.label10);
@@ -373,7 +394,7 @@ namespace TestWindows_WCF_CheckSalud
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
-            this.Name = "PacienteMan02";
+            this.Name = "PacienteMan03";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Paciente:";
             this.Load += new System.EventHandler(this.MedicoMan02_Load);
@@ -413,5 +434,7 @@ namespace TestWindows_WCF_CheckSalud
         private Label label10;
         private ComboBox cbxTipoSangre;
         private ComboBox cbxTipoCliente;
+        private Label label12;
+        private TextBox txtCodigo;
     }
 }

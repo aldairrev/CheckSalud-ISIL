@@ -43,7 +43,6 @@
             this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DirecPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoSangre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FotoPaciente = new System.Windows.Forms.DataGridViewImageColumn();
             this.EmailPaciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +76,6 @@
             this.Sexo,
             this.DirecPaciente,
             this.TipoSangre,
-            this.FotoPaciente,
             this.EmailPaciente,
             this.FechaIngreso,
             this.NumTelefono,
@@ -93,6 +91,7 @@
             this.dtgResultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgResultados.Size = new System.Drawing.Size(852, 380);
             this.dtgResultados.TabIndex = 0;
+            this.dtgResultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgResultados_CellContentClick);
             // 
             // btnInsertar
             // 
@@ -206,16 +205,6 @@
             this.TipoSangre.ReadOnly = true;
             this.TipoSangre.Width = 97;
             // 
-            // FotoPaciente
-            // 
-            this.FotoPaciente.DataPropertyName = "FotoPaciente";
-            this.FotoPaciente.HeaderText = "Foto";
-            this.FotoPaciente.Name = "FotoPaciente";
-            this.FotoPaciente.ReadOnly = true;
-            this.FotoPaciente.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FotoPaciente.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FotoPaciente.Width = 53;
-            // 
             // EmailPaciente
             // 
             this.EmailPaciente.DataPropertyName = "EmailPaciente";
@@ -310,7 +299,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DirecPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoSangre;
-        private System.Windows.Forms.DataGridViewImageColumn FotoPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailPaciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaIngreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumTelefono;

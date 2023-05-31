@@ -21,7 +21,7 @@
       <xs:element minOccurs="0" name="numTelefono" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="sexo" type="xs:int" />
       <xs:element minOccurs="0" name="tipoCliente" type="xs:short" />
-      <xs:element minOccurs="0" name="tipoSangre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoSangre" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PacienteDC" nillable="true" type="tns:PacienteDC" />

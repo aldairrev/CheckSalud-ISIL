@@ -553,11 +553,6 @@ warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Resultados_Aud' does not have
           <Parameter Name="Pass_Usuario" Type="nvarchar" Mode="In" />
           <Parameter Name="Usu_Registro" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="usp_InsertarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Login_Usuario" Type="nvarchar" Mode="In" />
-          <Parameter Name="Pass_Usuario" Type="nvarchar" Mode="In" />
-          <Parameter Name="Usu_Registro" Type="nvarchar" Mode="In" />
-        </Function>
         <Function Name="usp_ListarAnalisis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarAuditor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -1245,11 +1240,6 @@ warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Resultados_Aud' does not have
             <Parameter Name="fec_ingreso" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="usp_ListarMedico" ReturnType="Collection(CheckSalud_DBModel.usp_ListarMedico_Result)" />
-          <FunctionImport Name="usp_InsertarUsuario">
-            <Parameter Name="Login_Usuario" Mode="In" Type="String" />
-            <Parameter Name="Pass_Usuario" Mode="In" Type="String" />
-            <Parameter Name="Usu_Registro" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="usp_ListarPaciente3Fechas" ReturnType="Collection(CheckSalud_DBModel.usp_ListarPaciente3Fechas_Result)">
             <Parameter Name="vCod" Mode="In" Type="String" />
             <Parameter Name="fecini" Mode="In" Type="String" />
@@ -2081,7 +2071,6 @@ warning 6002: The table/view 'CheckSalud_DB.dbo.Tb_Resultados_Aud' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_InsertarUsuario" FunctionName="CheckSalud_DBModel.Store.usp_InsertarUsuario" />
           <FunctionImportMapping FunctionImportName="usp_ConsultarEmpresa" FunctionName="CheckSalud_DBModel.Store.usp_ConsultarEmpresa">
             <ResultMapping>
               <ComplexTypeMapping TypeName="CheckSalud_DBModel.usp_ConsultarEmpresa_Result">

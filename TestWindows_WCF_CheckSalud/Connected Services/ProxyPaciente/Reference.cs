@@ -80,7 +80,7 @@ namespace TestWindows_WCF_CheckSalud.ProxyPaciente {
         private short tipoClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string tipoSangreField;
+        private int tipoSangreField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -340,12 +340,12 @@ namespace TestWindows_WCF_CheckSalud.ProxyPaciente {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string tipoSangre {
+        public int tipoSangre {
             get {
                 return this.tipoSangreField;
             }
             set {
-                if ((object.ReferenceEquals(this.tipoSangreField, value) != true)) {
+                if ((this.tipoSangreField.Equals(value) != true)) {
                     this.tipoSangreField = value;
                     this.RaisePropertyChanged("tipoSangre");
                 }

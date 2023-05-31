@@ -742,23 +742,6 @@ namespace WCF_CheckSalud
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarEstadoPaciente", vNomParameter, vApeParameter, vFNacParameter, vDniParameter, vSexoParameter, vDirParameter, vSangParameter, vEmailParameter, vFIngrParameter, vTelefParameter, vEstaParameter, vTipoParameter, vCEmprParameter, vUsu_RegParameter, vId_UbigeoParameter);
         }
     
-        public virtual int usp_InsertarUsuario(string login_Usuario, string pass_Usuario, string usu_Registro)
-        {
-            var login_UsuarioParameter = login_Usuario != null ?
-                new ObjectParameter("Login_Usuario", login_Usuario) :
-                new ObjectParameter("Login_Usuario", typeof(string));
-    
-            var pass_UsuarioParameter = pass_Usuario != null ?
-                new ObjectParameter("Pass_Usuario", pass_Usuario) :
-                new ObjectParameter("Pass_Usuario", typeof(string));
-    
-            var usu_RegistroParameter = usu_Registro != null ?
-                new ObjectParameter("Usu_Registro", usu_Registro) :
-                new ObjectParameter("Usu_Registro", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarUsuario", login_UsuarioParameter, pass_UsuarioParameter, usu_RegistroParameter);
-        }
-    
         public virtual ObjectResult<usp_ListarAnalisis_Result> usp_ListarAnalisis()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarAnalisis_Result>("usp_ListarAnalisis");
