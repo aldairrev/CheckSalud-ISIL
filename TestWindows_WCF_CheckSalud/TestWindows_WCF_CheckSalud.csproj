@@ -68,6 +68,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyPaciente\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProxyResultado\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,11 +114,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PacienteMan01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteMan01.Designer.cs">
+      <DependentUpon>PacienteMan01.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResultadoMan01.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ResultadoMan01.Designer.cs">
       <DependentUpon>ResultadoMan01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PacienteMan02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacienteMan02.Designer.cs">
+      <DependentUpon>PacienteMan02.cs</DependentUpon>
     </Compile>
     <Compile Include="ResultadoMan02.cs">
       <SubType>Form</SubType>
@@ -145,8 +162,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PacienteMan01.resx">
+      <DependentUpon>PacienteMan01.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResultadoMan01.resx">
       <DependentUpon>ResultadoMan01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacienteMan02.resx">
+      <DependentUpon>PacienteMan02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResultadoMan02.resx">
       <DependentUpon>ResultadoMan02.cs</DependentUpon>
@@ -204,6 +227,19 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProxyMedico\WCF_CheckSalud.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyPaciente\service.wsdl" />
+    <None Include="Connected Services\ProxyPaciente\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyPaciente\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyPaciente\TestWindows_WCF_CheckSalud.ProxyPaciente.PacienteDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyPaciente\WCF_CheckSalud.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyResultado\service.wsdl" />
@@ -274,6 +310,7 @@
     <WCFMetadataStorage Include="Connected Services\ProxyAnalisis\" />
     <WCFMetadataStorage Include="Connected Services\ProxyEspecialidad\" />
     <WCFMetadataStorage Include="Connected Services\ProxyEvaluacion\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyPaciente\" />
     <WCFMetadataStorage Include="Connected Services\ProxyMedico\" />
     <WCFMetadataStorage Include="Connected Services\ProxyResultado\" />
     <WCFMetadataStorage Include="Connected Services\ProxyUbicacion\" />
@@ -359,6 +396,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProxyUsuario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyPaciente\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyPaciente\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyPaciente\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

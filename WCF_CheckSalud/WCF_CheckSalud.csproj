@@ -223,6 +223,7 @@
     <Compile Include="IServicioEmpresa.cs" />
     <Compile Include="IServicioEvaluacion.cs" />
     <Compile Include="IServicioMedico.cs" />
+    <Compile Include="IServicioPaciente.cs" />
     <Compile Include="IServicioResultado.cs" />
     <Compile Include="IServicioUbicacion.cs" />
     <Compile Include="IServicioUsuario.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="ServicioEmpresa.cs" />
     <Compile Include="ServicioEvaluacion.cs" />
     <Compile Include="ServicioMedico.cs" />
+    <Compile Include="ServicioPaciente.cs" />
     <Compile Include="ServicioResultado.cs" />
     <Compile Include="ServicioUbicacion.cs" />
     <Compile Include="ServicioUsuario.cs" />
@@ -273,10 +275,88 @@
     <Compile Include="Tb_Usuario.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ConsultarAnalisis_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultarEmpresa_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultarMedicoPaci_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ConsultarMedico_Result.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ConsultarPacienteResult_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultarPaciente_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultarResultado_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultarUsuario_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_EmpresasPorTrabajadores_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarAnalisisxMedico_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarAnalisis_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarAuditor_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarEmpresa_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarEnfermedad_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarEspecialidad_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarMedico2_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ListarMedico_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPaciente2_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPaciente3Fechas_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPaciente3_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPacientesxEmpresas_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarPaciente_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarResultados2_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarResultados_Paginacion_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarResultados_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarUbicacion_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarUltAnalisis_Result.cs">
+      <DependentUpon>CheckSalud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListarUltEvaluacion_Result.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>
   </ItemGroup>
