@@ -9,31 +9,19 @@
 
 namespace WCF_CheckSalud
 {
-    using DotNetEnv;
     using System;
-    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-
     public partial class CheckSaludEntities : DbContext
     {
         public CheckSaludEntities()
             : base("name=CheckSaludEntities")
-        { }
-        private static string GetConnectionString()
         {
-            DotNetEnv.Env.Load(); // Cargar las variables de entorno desde el archivo .env
-            DotNetEnv.Env.TraversePath().Load();
-
-            String connectionString = DotNetEnv.Env.GetString("DB_CONNECTION_STRING");
-            // Realiza cualquier otra manipulación necesaria en la cadena de conexión si es necesario
-
-            return connectionString;
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -376,6 +364,23 @@ namespace WCF_CheckSalud
         public virtual ObjectResult<usp_ListarMedico_Result> usp_ListarMedico()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListarMedico_Result>("usp_ListarMedico");
+        }
+    
+        public virtual int usp_InsertarUsuario(string login_Usuario, string pass_Usuario, string usu_Registro)
+        {
+            var login_UsuarioParameter = login_Usuario != null ?
+                new ObjectParameter("Login_Usuario", login_Usuario) :
+                new ObjectParameter("Login_Usuario", typeof(string));
+    
+            var pass_UsuarioParameter = pass_Usuario != null ?
+                new ObjectParameter("Pass_Usuario", pass_Usuario) :
+                new ObjectParameter("Pass_Usuario", typeof(string));
+    
+            var usu_RegistroParameter = usu_Registro != null ?
+                new ObjectParameter("Usu_Registro", usu_Registro) :
+                new ObjectParameter("Usu_Registro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_InsertarUsuario", login_UsuarioParameter, pass_UsuarioParameter, usu_RegistroParameter);
         }
     }
 }

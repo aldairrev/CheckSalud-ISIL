@@ -217,20 +217,26 @@
       <DependentUpon>CheckSalud.edmx</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
+    <Compile Include="IServicioEspecialidad.cs" />
     <Compile Include="IServicioAnalisis.cs" />
     <Compile Include="IServicioConsultas.cs" />
     <Compile Include="IServicioEmpresa.cs" />
     <Compile Include="IServicioEvaluacion.cs" />
     <Compile Include="IServicioMedico.cs" />
     <Compile Include="IServicioResultado.cs" />
+    <Compile Include="IServicioUbicacion.cs" />
+    <Compile Include="IServicioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service1.cs" />
+    <Compile Include="ServicioEspecialidad.cs" />
     <Compile Include="ServicioAnalisis.cs" />
     <Compile Include="ServicioConsultas.cs" />
     <Compile Include="ServicioEmpresa.cs" />
     <Compile Include="ServicioEvaluacion.cs" />
     <Compile Include="ServicioMedico.cs" />
     <Compile Include="ServicioResultado.cs" />
+    <Compile Include="ServicioUbicacion.cs" />
+    <Compile Include="ServicioUsuario.cs" />
     <Compile Include="Tb_Analisis.cs">
       <DependentUpon>CheckSalud.tt</DependentUpon>
     </Compile>

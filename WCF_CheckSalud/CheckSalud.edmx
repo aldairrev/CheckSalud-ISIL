@@ -446,6 +446,11 @@
           <Parameter Name="vCodPac" Type="nvarchar" Mode="In" />
           <Parameter Name="vUsu_Registro" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="usp_InsertarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Login_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Pass_Usuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Usu_Registro" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="usp_ListarMedico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="CheckSalud_DBModelStoreContainer">
           <EntitySet Name="Tb_Analisis" EntityType="Self.Tb_Analisis" Schema="dbo" store:Type="Tables" />
@@ -1049,10 +1054,10 @@
             <Parameter Name="Id_Ubigeo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ConsultarMedico" ReturnType="Collection(CheckSalud_DBModel.usp_ConsultarMedico_Result)">
-            <Parameter Name="vCodMedico" Mode="In" Type="String" />
+          <Parameter Name="vCodMedico" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EliminarMedico">
-            <Parameter Name="VcodMedico" Mode="In" Type="String" />
+          <Parameter Name="VcodMedico" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_InsertarMedico">
             <Parameter Name="dniMedic" Mode="In" Type="String" />
@@ -1070,6 +1075,11 @@
             <Parameter Name="fec_ingreso" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="usp_ListarMedico" ReturnType="Collection(CheckSalud_DBModel.usp_ListarMedico_Result)" />
+          <FunctionImport Name="usp_InsertarUsuario">
+            <Parameter Name="Login_Usuario" Mode="In" Type="String" />
+            <Parameter Name="Pass_Usuario" Mode="In" Type="String" />
+            <Parameter Name="Usu_Registro" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ConsultarMedico_Result">
           <Property Type="String" Name="codigo" Nullable="false" MaxLength="4" />
@@ -1333,6 +1343,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_InsertarUsuario" FunctionName="CheckSalud_DBModel.Store.usp_InsertarUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

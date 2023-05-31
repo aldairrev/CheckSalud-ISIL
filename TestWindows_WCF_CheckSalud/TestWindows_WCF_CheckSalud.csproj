@@ -53,7 +53,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyEspecialidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProxyEvaluacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyMedico\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -63,11 +73,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyUbicacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProxyUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medicoman01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medicoman01.Designer.cs">
+      <DependentUpon>Medicoman01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicoMan02.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicoMan02.Designer.cs">
+      <DependentUpon>MedicoMan02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicoMan03.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicoMan03.designer.cs">
+      <DependentUpon>MedicoMan03.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +127,15 @@
     <Compile Include="ResultadoMan03.Designer.cs">
       <DependentUpon>ResultadoMan03.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Medicoman01.resx">
+      <DependentUpon>Medicoman01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicoMan02.resx">
+      <DependentUpon>MedicoMan02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicoMan03.resx">
+      <DependentUpon>MedicoMan03.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,6 +167,19 @@
     <None Include="Connected Services\ProxyAnalisis\WCF_CheckSalud.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProxyEspecialidad\service.wsdl" />
+    <None Include="Connected Services\ProxyEspecialidad\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEspecialidad\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEspecialidad\TestWindows_WCF_CheckSalud.ProxyEspecialidad.EspecialidadDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyEspecialidad\WCF_CheckSalud.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProxyEvaluacion\service.wsdl" />
     <None Include="Connected Services\ProxyEvaluacion\service.xsd">
       <SubType>Designer</SubType>
@@ -131,6 +191,19 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProxyEvaluacion\WCF_CheckSalud.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyMedico\service.wsdl" />
+    <None Include="Connected Services\ProxyMedico\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyMedico\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyMedico\TestWindows_WCF_CheckSalud.ProxyMedico.MedicoDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyMedico\WCF_CheckSalud.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyResultado\service.wsdl" />
@@ -158,6 +231,29 @@
     <None Include="Connected Services\ProxyResultado\WCF_CheckSalud.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProxyUbicacion\service.wsdl" />
+    <None Include="Connected Services\ProxyUbicacion\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUbicacion\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUbicacion\TestWindows_WCF_CheckSalud.ProxyUbicacion.UbicacionDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyUbicacion\WCF_CheckSalud.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\service.wsdl" />
+    <None Include="Connected Services\ProxyUsuario\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\WCF_CheckSalud.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -176,8 +272,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ProxyAnalisis\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyEspecialidad\" />
     <WCFMetadataStorage Include="Connected Services\ProxyEvaluacion\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyMedico\" />
     <WCFMetadataStorage Include="Connected Services\ProxyResultado\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyUbicacion\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyUsuario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProxyResultado\configuration91.svcinfo" />
@@ -211,6 +311,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProxyEvaluacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyMedico\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyMedico\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyMedico\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEspecialidad\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEspecialidad\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEspecialidad\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUbicacion\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUbicacion\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUbicacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUsuario\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUsuario\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
